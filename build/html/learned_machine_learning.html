@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. 機械学習のまとめ &#8212; MyOutput 0.0.1 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
+    <link rel="next" title="2. 数学" href="learned_math.html" />
+    <link rel="prev" title="Welcome to MyOutput’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>1. 機械学習のまとめ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">著者:</th><td class="field-body">Masato</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id2">
+<h2>1.1. 概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>機械学習に必要な知識についてまとめてあります。参考文献葉は</p>
+<ol class="arabic simple">
+<li>Christopher M. Bishop &#8220;Pattern Recognition and Machine Learning&#8221;</li>
+<li>機械学習プロフェッショナルシリーズ</li>
+<li>人工知能学会「深層学習」</li>
+</ol>
+<p>からまとめています。現在は深層学習に向けた知識をまとめるので、主に取り扱っているのはニューラルネットワークです。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.2. 機械学習とは<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id4">
+<h2>1.3. 確率分布<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id5">
+<h2>1.4. 線形回帰モデル<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id6">
+<h2>1.5. 線形識別モデル<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id7">
+<h2>1.6. ニューラルネットワーク<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="math">
+<p><img src="_images/math/aa7c947dc8092acc1dfc1da766e97bf489551a62.png" alt="(a + b)^2 = a^2 + 2ab + b^2
+
+(a - b)^2 = a^2 - 2ab + b^2"/></p>
+</div><div class="section" id="id8">
+<h3>順伝搬型ネットワーク<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id9">
+<h4>ユニットの出力<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<blockquote>
+<div>順伝搬型ネットワーク(feedforward neural network)は、層状に並べたユニットが隣接層間でのみ結合した構造を持ち、情報が入力側から出力側に一方向にのみ伝搬するニューラルネットワークである。文権によっては、
+多層パーセプトロン(Multi-layer Perceptron)と呼ばれる。
+　ネットワークを構成するユニットは、複数の入力を受け取り、1つの出力を計算します。例えば、4つの入力 <img class="math" src="_images/math/bf8e67ffbfc0d517f37e0e469a3cdcf3f41784e6.png" alt="x_{1}, x_{2}, x_{3} , x_{4}"/> を受け取った場合の総入力 <cite>u</cite> は、</div></blockquote>
+<div class="math">
+<p><img src="_images/math/c1586ea97a9c1f458759c9cba8c22c58b5dbc4f8.png" alt="u = w_{1}x_{1} + w_{2}x_{2} +  w_{3}x_{3} +  w_{4}x_{4} + b"/></p>
+</div><p>のように各入力にそれぞれ異なる値の重み(weight) <img class="math" src="_images/math/9998061a5071c7715cf1044c5b6db6ce871672da.png" alt="w_{1}, w_{2}, w_{3} , w_{4}"/> を掛けた値を加算し、これにバイアス(bias)を足し合わせたものになる。ユニットの出力 <img class="math" src="_images/math/683f2dd9129a91d21aaf1c04afa6f78b39d4cb0a.png" alt="z"/> は、総入力 <img class="math" src="_images/math/92e3f44c99a016c5238a790c96f12fd46aa93c4a.png" alt="u"/> に対する活性化関数
+(activation function)と呼ばれる関数 <img class="math" src="_images/math/875eb40014526135383caa89fd500ae40a835f56.png" alt="f"/> の出力となる。</p>
+<div class="math">
+<p><img src="_images/math/e9d09fab94cf796928c7603cf48be096e9859c7a.png" alt="z = f(u)"/></p>
+</div><p>順伝搬型ネットワークでは、下図のようになり、このようなユニットが層状に並べられ、層間でのみ結合を持つ。前段の層のユニットの出力が後段の層のユニットの出力になるという形で、この結合を通じて信号は前から後ろに一方向に伝搬する。
+同図のネットワークでは、後段の3つのユニット( <img class="math" src="_images/math/fefeb3cc645203cb10b57c8a970378e80e6ba23a.png" alt="j = 1,2,3"/> )はそれぞれ、前段の層の4つのユニット( <img class="math" src="_images/math/6e1f0bf5e9fb01d71c506c5e72d4941000a4eb42.png" alt="i = 1,2,3,4"/> )からの出力 <img class="math" src="_images/math/8fd0bb771160498fb58bf10e5759ebf926ac9e12.png" alt="x_1, x_2, x_3, x_4"/> を入力として受け取る。ユニットの結合は3x4=12本ありが、
+その1つ1つの結合に異なる重み <img class="math" src="_images/math/8250d6b5f7158b309508255642586d1ddb618470.png" alt="w_{ji}"/> が与えられている。次式は3つのユニットが受け取る入力はそれぞれ、</p>
+<div class="math">
+<p><img src="_images/math/217bac7e4266926c348c855e6388ee05b0373783.png" alt="u_1 = w_{11}x_{1} + w_{12}x_{2} +  w_{13}x_{3} +  w_{14}x_{4} + b_1
+u_2 = w_{21}x_{1} + w_{22}x_{2} +  w_{23}x_{3} +  w_{24}x_{4} + b_2
+u_3 = w_{31}x_{1} + w_{32}x_{2} +  w_{33}x_{3} +  w_{34}x_{4} + b_3"/></p>
+</div></div>
+</div>
+<div class="section" id="id10">
+<h3>確率的勾配降下法<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id11">
+<h3>誤差逆伝搬<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id12">
+<h3>事前学習(自己符号化器)<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id13">
+<h3>畳み込みニューラルネット<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id14">
+<h4>画像認識<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>再帰型ニューラルネット<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id16">
+<h4>音声認識<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</div>
+<div class="section" id="id17">
+<h4>自然言語処理<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>ボルツマンマシン<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. 機械学習のまとめ</a><ul>
+<li><a class="reference internal" href="#id2">1.1. 概要</a></li>
+<li><a class="reference internal" href="#id3">1.2. 機械学習とは</a></li>
+<li><a class="reference internal" href="#id4">1.3. 確率分布</a></li>
+<li><a class="reference internal" href="#id5">1.4. 線形回帰モデル</a></li>
+<li><a class="reference internal" href="#id6">1.5. 線形識別モデル</a></li>
+<li><a class="reference internal" href="#id7">1.6. ニューラルネットワーク</a><ul>
+<li><a class="reference internal" href="#id8">順伝搬型ネットワーク</a><ul>
+<li><a class="reference internal" href="#id9">ユニットの出力</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id10">確率的勾配降下法</a></li>
+<li><a class="reference internal" href="#id11">誤差逆伝搬</a></li>
+<li><a class="reference internal" href="#id12">事前学習(自己符号化器)</a></li>
+<li><a class="reference internal" href="#id13">畳み込みニューラルネット</a><ul>
+<li><a class="reference internal" href="#id14">画像認識</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15">再帰型ニューラルネット</a><ul>
+<li><a class="reference internal" href="#id16">音声認識</a></li>
+<li><a class="reference internal" href="#id17">自然言語処理</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id18">ボルツマンマシン</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="前の章へ">Welcome to MyOutput&#8217;s documentation!</a></li>
+      <li>Next: <a href="learned_math.html" title="次の章へ">2. 数学</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/learned_machine_learning.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Masato.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/learned_machine_learning.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

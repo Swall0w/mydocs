@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8. Applications on Linux &#8212; MyOutput 0.0.1 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
+    <link rel="next" title="9. Linux システム関連" href="learned_linux_server.html" />
+    <link rel="prev" title="7. Arch Linux" href="learned_linux_archlinux.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="applications-on-linux">
+<h1>8. Applications on Linux<a class="headerlink" href="#applications-on-linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">著者:</th><td class="field-body">Masato</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>8.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Linux上で動かすアプリケーションの使い方、コツについて載せていきます。</p>
+</div>
+<div class="section" id="shell">
+<h2>8.2. shell<a class="headerlink" href="#shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id2">
+<h3>プロンプトの表示を変更するには<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ログインして以下のように表示されるのがプロンプトです。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[swallow@arch~]$
+</pre></div>
+</div>
+<p>プロンプトはシェル似よって表示が若干異なるが、bashのプロンプト表示は <strong>$</strong> が一般ユーザー、<strong>#</strong> がスーパーユーザー(root)となる。
+この表示の制御はPS1という環境変数によって設定されている。この環境変数PS1の値を変更すれば、オリジナルのプロンプトを表示させることができ、
+その設定にはexportコマンドを使用する。</p>
+<p>設定値には、以下にような特殊な文字が設定出来る。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>d</td>
+<td>日付</td>
+</tr>
+<tr class="row-even"><td>h</td>
+<td>ホスト名（ドメイン名なし）</td>
+</tr>
+<tr class="row-odd"><td>H</td>
+<td>ホスト名（ドメイン名あり）</td>
+</tr>
+<tr class="row-even"><td>s</td>
+<td>シェルの名前</td>
+</tr>
+<tr class="row-odd"><td>t</td>
+<td>時間（24時間制 HH:MM:SS形式)</td>
+</tr>
+<tr class="row-even"><td>T</td>
+<td>時間（12時間制 HH:MM:SS形式)</td>
+</tr>
+<tr class="row-odd"><td>&#64;</td>
+<td>時間（12時間制 HH:MM AM/PM形式)</td>
+</tr>
+<tr class="row-even"><td>u</td>
+<td>ユーザ名</td>
+</tr>
+<tr class="row-odd"><td>w</td>
+<td>カレントディレクトリ</td>
+</tr>
+<tr class="row-even"><td>W</td>
+<td>カレントディレクトリのベース名</td>
+</tr>
+<tr class="row-odd"><td>!</td>
+<td>コマンド履歴番号を表示</td>
+</tr>
+<tr class="row-even"><td>#</td>
+<td>コマンドのコマンド番号</td>
+</tr>
+<tr class="row-odd"><td>$</td>
+<td>rootなら#、それ以外なら$を表示</td>
+</tr>
+<tr class="row-even"><td>\</td>
+<td>バックスラッシュ</td>
+</tr>
+</tbody>
+</table>
+<p>現在の環境変数PS1の値を表示する。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[swallow@arch~]$ echo &quot;$PS1&quot;
+[\u@\h\W]
+</pre></div>
+</div>
+<p>現在の環境変数PS1の値を表示する。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[swallow@arch~]$ export PS1=&quot;[\u@\t\w]\$ &quot;
+↑最後は半角スペースを入れる。
+</pre></div>
+</div>
+<p>これは再ログインすると設定が元に戻ってしまうので、永続した設定にするには、.bashrcにさっきのものを記述する。</p>
+</div>
+<div class="section" id="id3">
+<h3>ターミナル上でのショートカット<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id4">
+<h4>一覧<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="4%" />
+<col width="96%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Ctrl + a</td>
+<td>カーソルを行頭へ移動する</td>
+</tr>
+<tr class="row-even"><td>Ctrl + e</td>
+<td>カーソルを行末へ移動する</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + d</td>
+<td>現在の入力行に何か入力されている場合は、カーソルの後ろにある一文字を消去する （Deleteキーと同じ働きをする）別のユーザにログインしている場合は、別のユーザからログアウトする （「exit」コマンドと同じ働きをする）</td>
+</tr>
+<tr class="row-even"><td>Ctrl + h</td>
+<td>カーソルの前にある一文字を消去する（Backspaceキーと同じ働きをする）</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + u</td>
+<td>現在入力中の行をクリアする</td>
+</tr>
+<tr class="row-even"><td>Ctrl + l</td>
+<td>ターミナルをクリアする（「clear」コマンドと同じ働きをする）</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + k</td>
+<td>カーソルより後ろにある文字列を切り取る</td>
+</tr>
+<tr class="row-even"><td>Ctrl + y</td>
+<td>切り取った文字列を貼り付ける</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + r</td>
+<td>コマンドの履歴を表示する</td>
+</tr>
+<tr class="row-even"><td>Ctrl + f</td>
+<td>→キーを押すのと同じ働きをする</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + b</td>
+<td>←キーを押すのと同じ働きをする</td>
+</tr>
+<tr class="row-even"><td>Ctrl + p</td>
+<td>↑キーを押すのと同じ働きをする</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + n</td>
+<td>↓キーを押すのと同じ働きをする</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h4>コピー &amp; ペースト<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>コピーしたい文字列をマウスで選択するとコピーできます。ペーストしたいときは、3ボタンマウスの真ん中のボタンを押すか、「Shift + Insert」キーを押せばペーストできます。</p>
+</div>
+</div>
+</div>
+<div class="section" id="vim">
+<h2>8.3. Vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id6">
+<h3>画面分割<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id7">
+<h4>ウィンドウ分割<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">デフォルト</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>水平分割</td>
+<td>:split</td>
+</tr>
+<tr class="row-odd"><td>垂直分割</td>
+<td>:vsplit</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h4>ウィンドウ移動<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">デフォルト</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>左に移動</td>
+<td>&lt;C-w&gt;h</td>
+</tr>
+<tr class="row-odd"><td>下に移動</td>
+<td>&lt;C-w&gt;j</td>
+</tr>
+<tr class="row-even"><td>上に移動</td>
+<td>&lt;C-w&gt;k</td>
+</tr>
+<tr class="row-odd"><td>右に移動</td>
+<td>&lt;C-w&gt;l</td>
+</tr>
+<tr class="row-even"><td>次に移動</td>
+<td>&lt;C-w&gt;w</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h4>ウィンドウそのものを移動<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">デフォルト</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>左に移動</td>
+<td>&lt;C-w&gt;H</td>
+</tr>
+<tr class="row-odd"><td>下に移動</td>
+<td>&lt;C-w&gt;J</td>
+</tr>
+<tr class="row-even"><td>上に移動</td>
+<td>&lt;C-w&gt;K</td>
+</tr>
+<tr class="row-odd"><td>右に移動</td>
+<td>&lt;C-w&gt;L</td>
+</tr>
+<tr class="row-even"><td>回転</td>
+<td>&lt;C-w&gt;r</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h4>カレントウィンドウの大きさを変更<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">デフォルト</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>縦に最大化</td>
+<td>&lt;C-w&gt;_</td>
+</tr>
+<tr class="row-odd"><td>横に最大化</td>
+<td>&lt;C-w&gt;パイプ</td>
+</tr>
+<tr class="row-even"><td>大きさを揃える</td>
+<td>&lt;C-w&gt;=</td>
+</tr>
+<tr class="row-odd"><td>幅を増やす</td>
+<td>&lt;C-w&gt;&gt;</td>
+</tr>
+<tr class="row-even"><td>幅を減らす</td>
+<td>&lt;C-w&gt;&lt;  &lt;</td>
+</tr>
+<tr class="row-odd"><td>高さを増やす</td>
+<td>&lt;C-w&gt;+  +</td>
+</tr>
+<tr class="row-even"><td>高さを減らす</td>
+<td>&lt;C-w&gt;-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h4>タブ関連<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">デフォルト</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>新規タブ</td>
+<td>:tabnew</td>
+</tr>
+<tr class="row-odd"><td>次のタブに切替</td>
+<td>gt</td>
+</tr>
+<tr class="row-even"><td>前のタブに切替</td>
+<td>gT</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h4>閉じる<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">項目名</th>
+<th class="head">デフォルト</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ウィンドウを閉じる</td>
+<td>:q</td>
+</tr>
+<tr class="row-odd"><td>バッファを閉じる</td>
+<td>:bd</td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca">http://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca</a></p>
+</div>
+</div>
+<div class="section" id="xml">
+<h3>Xmlファイルの整形<a class="headerlink" href="#xml" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div>:%s/&gt;&lt;/&gt;r&lt;/g | filetype indent on | setf xml | normal gg=G</div></blockquote>
+</div>
+</div>
+<div class="section" id="zip">
+<h2>8.4. zip<a class="headerlink" href="#zip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="zipzip">
+<h3>zipコマンドでディレクトリをzip化する<a class="headerlink" href="#zipzip" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div>$ zip -r 生成するzipファイル名 zip化するディレクトリ</div></blockquote>
+</div>
+</div>
+<div class="section" id="github">
+<h2>8.5. github<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id13">
+<h3>事前知識<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>リポジトリとは、ファイルやディレクトリの状態を保存する場所である。
+更履歴を管理したいディレクトリなどをリポジトリの管理下に置くことで、そのディレクトリ内のファイルなどの変更履歴を記録することができる。</p>
+<ul class="simple">
+<li>ローカルリポジトリ・・・ 自分のマシン内にあるリポジトリ</li>
+<li>リモートリポジトリ・・・ サーバなどネットワーク上にある。</li>
+</ul>
+<p>基本的にローカルリポジトリで作業を行い、その作業内容をリモートポジトリへプッシュする流れで行う。</p>
+<ul class="simple">
+<li>コミット・・・ファイルの追加や変更の履歴をリポジトリに保存すること</li>
+<li>プッシュ・・・ファイルの追加や変更の履歴をリモートリポジトリにアップロードするための操作</li>
+</ul>
+<p>ブランチ(branch)とは現在リリースしているバージョンのメンテナンスをしながら新たな機能の追加やバグ修正を平行して行うため、
+複数のバージョン管理を行うためにbranchがある。branchは履歴の流れを分岐して記録していくものであり、分岐したブランチは、他のブランチの影響を受けないため、
+同じリポジトリ内でそれぞれの開発を行える。</p>
+</div>
+<div class="section" id="githubssh">
+<h3>githubとssh接続<a class="headerlink" href="#githubssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ssh公開鍵を作成するために、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ssh-keygen
+</pre></div>
+</div>
+<p>を実行する。Enter passphraseと表示されるので、パスフレーズを入力する。(二回)</p>
+<p>公開鍵を確認するために、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cat ~/.ssh/id_rsa.pub
+</pre></div>
+</div>
+<p>を実行する。ssh-rsaから始まるめちゃくちゃな文字列が公開鍵であるので、これをまるごとコピーする。</p>
+<p>GitHubサイトのアカウントセッティング画面上にSSH Keysという項目があるので、そこで、先ほどの鍵を追加する。
+コピーしたものまるごと貼り付ける。</p>
+<p>端末に戻り、gitにユーザ名を登録する。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git config --global user.name {username}
+$ git config --global user.mail {mail address}
+</pre></div>
+</div>
+<p>登録状況を確認するには、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git config --global --list
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>GitHubでレポジトリを作成する。<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まずは、リポジトリを作成する。GitHubにログインした状態で、右下の「New Repository」ボタンを押す。
+次に表示される画面で、「Repository name」の入力後に「Description」も入力する。</p>
+<p>また、リポジトリの種類をPublicかPrivateを選択する。最後にリポジトリの中にあらかじめREADMEファイルを作成しておく場合は、
+「Initialize this repository with a README」にチェックを入れる。.gitignoreやlicenseについては後で追加や変更ができるため、Noneとする。</p>
+<p>必要項目の入力が終わり、「Create repository」ボタンをクリックするとリポジトリの作成は完了する。
+次の画面でリモートリポジトリのアドレスが表示されるため、控えておく。</p>
+</div>
+<div class="section" id="id15">
+<h3>ローカルリポジトリ<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ローカルディレクトリを作成し、そこを初期化する。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>mkdir hoge
+cd $_
+git init
+</pre></div>
+</div>
+<p>「git init」コマンドはgitリポジトリを新たに作成するコマンドである。バージョン管理を行っていない既存のプロジェクトをgitリポジトリに変換する場合や、
+空の新規リポジトリを作成して初期化する場合に使用する。このコマンドの実行によりカレントディレクトリをgitリポジトリに変換する。</p>
+</div>
+<div class="section" id="id16">
+<h3>GitHubのリモート先を指定<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>foo を github のユーザ名、bar をプロジェクト名で、それぞれ置き換える。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git remote add origin git@github.com:foo/bar.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-git-add">
+<h3>ファイルの作成・変更・削除をgitのインデックスに追加する(git add)<a class="headerlink" href="#git-git-add" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ファイルを追加したあと、gitのバージョン管理に追加するには、以下のコマンドでインデックスに追加する。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add foo
+</pre></div>
+</div>
+<p>インデックスとは、リポジトリにコミット準備をするために、変更内容を一時的に保存する場所である。</p>
+</div>
+<div class="section" id="git-commit">
+<h3>変更結果をローカルリポジトリにコミットする(git commit)<a class="headerlink" href="#git-commit" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>インデックスに追加されたファイルをコミットする。
+コミットとは、ファイルやディレクトリの追加や変更をリポジトリに記録する操作のことである。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;add a new file&quot;</span>
+</pre></div>
+</div>
+<p>これでリポジトリに対してファイルの追加が記録された。確認は以下の方法でできる。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p>リモートリポジトリに反映される前に、リモートリポジトリの情報を追加する。この情報はgithub所に表示されるリモートリポジトリのアドレスである。例として、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">//</span><span class="n">hogehoge</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-push">
+<h3>ローカルリポジトリをプッシュしてリモートレポジトリへ反映させる(git push)<a class="headerlink" href="#git-push" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ローカルリポジトリの変更をgithub上にあるリモートリポジトリに反映させるため、以下のようにする。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>GitHubのユーザ名とパスワードを尋ねられるため、入力する。これが終わると、リモートレポジトリへ反映出来る。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. Applications on Linux</a><ul>
+<li><a class="reference internal" href="#id1">8.1. 概要</a></li>
+<li><a class="reference internal" href="#shell">8.2. shell</a><ul>
+<li><a class="reference internal" href="#id2">プロンプトの表示を変更するには</a></li>
+<li><a class="reference internal" href="#id3">ターミナル上でのショートカット</a><ul>
+<li><a class="reference internal" href="#id4">一覧</a></li>
+<li><a class="reference internal" href="#id5">コピー &amp; ペースト</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#vim">8.3. Vim</a><ul>
+<li><a class="reference internal" href="#id6">画面分割</a><ul>
+<li><a class="reference internal" href="#id7">ウィンドウ分割</a></li>
+<li><a class="reference internal" href="#id8">ウィンドウ移動</a></li>
+<li><a class="reference internal" href="#id9">ウィンドウそのものを移動</a></li>
+<li><a class="reference internal" href="#id10">カレントウィンドウの大きさを変更</a></li>
+<li><a class="reference internal" href="#id11">タブ関連</a></li>
+<li><a class="reference internal" href="#id12">閉じる</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#xml">Xmlファイルの整形</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#zip">8.4. zip</a><ul>
+<li><a class="reference internal" href="#zipzip">zipコマンドでディレクトリをzip化する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#github">8.5. github</a><ul>
+<li><a class="reference internal" href="#id13">事前知識</a></li>
+<li><a class="reference internal" href="#githubssh">githubとssh接続</a></li>
+<li><a class="reference internal" href="#id14">GitHubでレポジトリを作成する。</a></li>
+<li><a class="reference internal" href="#id15">ローカルリポジトリ</a></li>
+<li><a class="reference internal" href="#id16">GitHubのリモート先を指定</a></li>
+<li><a class="reference internal" href="#git-git-add">ファイルの作成・変更・削除をgitのインデックスに追加する(git add)</a></li>
+<li><a class="reference internal" href="#git-commit">変更結果をローカルリポジトリにコミットする(git commit)</a></li>
+<li><a class="reference internal" href="#git-push">ローカルリポジトリをプッシュしてリモートレポジトリへ反映させる(git push)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="learned_linux_archlinux.html" title="前の章へ">7. Arch Linux</a></li>
+      <li>Next: <a href="learned_linux_server.html" title="次の章へ">9. Linux システム関連</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/learned_linux_apps.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Masato.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/learned_linux_apps.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

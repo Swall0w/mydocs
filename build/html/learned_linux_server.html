@@ -1,0 +1,460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>9. Linux システム関連 &#8212; MyOutput 0.0.1 ドキュメント</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
+    <link rel="next" title="10. ロボット関連" href="learned_robot.html" />
+    <link rel="prev" title="8. Applications on Linux" href="learned_linux_apps.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="linux">
+<h1>9. Linux システム関連<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">著者:</th><td class="field-body">Masato</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>9.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>データベースの構築から、インストール、ipの固定までのhow to をまとめていきます。</p>
+</div>
+<div class="section" id="id2">
+<h2>9.2. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="id3">
+<h2>9.3. Linux バージョン確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="cent-os">
+<h3>Cent OS<a class="headerlink" href="#cent-os" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Cent OSのバージョン確認:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cat /etc/redhat-releace
+CentOS release 6.8 (Final)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>アーキテクチャを確認する。<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>OSのバージョン確認コマンド:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ arch
+X86_64 &lt;- 64bitの場合
+i686   &lt;- 32bitの場合
+$ uname -a
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ftp">
+<h2>9.4. FTPコマンドでファイル転送<a class="headerlink" href="#ftp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>FTPコマンドは、ホスト名とポート番号を指定して起動します。すると、ユーザ名とパスワードを聞いてくるので入力します。ユーザ認証がOKな場合は各種FTPコマンドが使えます。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">fptコマンド</th>
+<th class="head">機能</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ftp</td>
+<td>FTPを起動する。</td>
+</tr>
+<tr class="row-odd"><td>ls</td>
+<td>リモートのファイルの一覧を表示</td>
+</tr>
+<tr class="row-even"><td>pwd</td>
+<td>リモートのカレントディレクトリを表示</td>
+</tr>
+<tr class="row-odd"><td>cd</td>
+<td>リモートのカレント作業ディレクトリを表示</td>
+</tr>
+<tr class="row-even"><td>mkdir</td>
+<td>リモートのディレクトリを作成</td>
+</tr>
+<tr class="row-odd"><td>!ls</td>
+<td>ローカルのファイルの一覧を表示</td>
+</tr>
+<tr class="row-even"><td>!pwd</td>
+<td>ローカルのカレントディレクトリを表示</td>
+</tr>
+<tr class="row-odd"><td>!cd</td>
+<td>ローカルのカレント作業ディレクトリを移動</td>
+</tr>
+<tr class="row-even"><td>get</td>
+<td>ファイルをダウンロード</td>
+</tr>
+<tr class="row-odd"><td>mget</td>
+<td>複数のファイルをダウンロード</td>
+</tr>
+<tr class="row-even"><td>put</td>
+<td>ファイルをアップロード</td>
+</tr>
+<tr class="row-odd"><td>mput</td>
+<td>複数のファイルをアップロード</td>
+</tr>
+<tr class="row-even"><td>passive</td>
+<td>Passiveモードの切り替え</td>
+</tr>
+<tr class="row-odd"><td>bin /binary</td>
+<td>バイナリ転送モードに切り替え</td>
+</tr>
+<tr class="row-even"><td>asc /ascii</td>
+<td>ASCII転送モードに切り替え</td>
+</tr>
+<tr class="row-odd"><td>bye /exit /quit</td>
+<td>FTPコマンド終了</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ubuntupukiwiki">
+<h2>9.5. Ubuntuにpukiwikiインストール<a class="headerlink" href="#ubuntupukiwiki" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="apach2-4-php">
+<h3>Apach2.4 &amp; PHP インストール<a class="headerlink" href="#apach2-4-php" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>普通にapt-getする。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo apt-get install apache2
+$ sudo apt-get install php
+</pre></div>
+</div>
+<p>/var/www/htmlがデフォルトのパブリックフォルダとなっている。apt-getでインストール後は自動的にサーバプロセスが起動する。ブラウザで、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="p">[</span><span class="n">サーバー名</span><span class="p">]</span><span class="o">/</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>へアクセスし、Apacheのデフォルトページが表示されればOK</p>
+</div>
+<div class="section" id="pukiwiki1-5-0">
+<h3>PukiWiki1.5.0を設置<a class="headerlink" href="#pukiwiki1-5-0" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>utf8版のPukiWikiを使う。WikiのURLは、<a class="reference external" href="http:/">http:/</a>/[サーバー名]/wiki とする。zipファイルなので、unzipする。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo apt-get install unzip
+$ cd /var/www/html/
+$ sudo unzip pukiwiki-1_5_0_utf8.zip
+$ sudo mv pukiwiki-1_5_0_utf8 wiki
+</pre></div>
+</div>
+<p>Wikiの実効権限をサーバプロセスと同じ、www-dataにする。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ chwon -R www-data.www-data /var/www/html/wiki
+</pre></div>
+</div>
+<p>これで <a class="reference external" href="http:/">http:/</a>/[サーバ名]/wiki にアクセスし、Pukiwikiのデフォルトページが表示される。</p>
+<p><a class="reference external" href="http://qiita.com/tuneyukkie/items/e7565fb0856e6a9f517d">http://qiita.com/tuneyukkie/items/e7565fb0856e6a9f517d</a></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>9.6. Linux ファイルシステム<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="proc">
+<h3>/proc<a class="headerlink" href="#proc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プロセスやメモリなどのLinuxシステム上のリソース関連情報をあたかもファイルであるかのように配置した
+仮想的なファイルシステム、ファイルを読もうとしたときにOSが動的に生成する
+大体が読み取り可能だが書き込み可能のものもあって(代表的なものは/proc/sys)
+そのファイルを利用すればカーネルのパラメータを変更できる</p>
+<div class="section" id="id6">
+<h4>/procの分類<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>大きくわけて/proc内にはプロセスIDの数字が書かれたディレクトリとLinuxのカーネル内部情報(cpu関連、メモリ関連等)があるpsやunameなどのコマンドが情報を出力する際に直接参照されている。
+各ファイルはcatなどで参照できる(/proc/kcoreはメモリのイメージでバイナリなので止めた方がいい)</p>
+</div>
+<div class="section" id="id7">
+<h4>Linuxのカーネル内部情報<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>apm</td>
+<td>APMの情報</td>
+</tr>
+<tr class="row-even"><td>acpi</td>
+<td>ACPI(パソコンの電源管理)の情報</td>
+</tr>
+<tr class="row-odd"><td>bus</td>
+<td>バスの情報を含むディレクトリ</td>
+</tr>
+<tr class="row-even"><td>cmdline</td>
+<td>カーネルのブートパラメータ</td>
+</tr>
+<tr class="row-odd"><td>cpuinfo</td>
+<td>CPU情報</td>
+</tr>
+<tr class="row-even"><td>devices</td>
+<td>使用可能なブロック/キャラクタデバイス</td>
+</tr>
+<tr class="row-odd"><td>dma</td>
+<td>DMAチャネル情報</td>
+</tr>
+<tr class="row-even"><td>filesystems</td>
+<td>サポートするファイルシステム</td>
+</tr>
+<tr class="row-odd"><td>interrupts</td>
+<td>割り込み情報</td>
+</tr>
+<tr class="row-even"><td>ioports</td>
+<td>I/Oポート情報</td>
+</tr>
+<tr class="row-odd"><td>iomem</td>
+<td>マシンのメモリ使用状況</td>
+</tr>
+<tr class="row-even"><td>irq</td>
+<td>割り込み情報</td>
+</tr>
+<tr class="row-odd"><td>kcore</td>
+<td>物理メモリのイメージ</td>
+</tr>
+<tr class="row-even"><td>kmsg</td>
+<td>カーネルのメッセージ</td>
+</tr>
+<tr class="row-odd"><td>loadavg</td>
+<td>負荷情報</td>
+</tr>
+<tr class="row-even"><td>locks</td>
+<td>カーネル・ロック情報</td>
+</tr>
+<tr class="row-odd"><td>meminfo</td>
+<td>メモリ情報</td>
+</tr>
+<tr class="row-even"><td>misc</td>
+<td>雑多な情報</td>
+</tr>
+<tr class="row-odd"><td>modules</td>
+<td>ロードされたモジュールの一覧情報</td>
+</tr>
+<tr class="row-even"><td>mounts</td>
+<td>マウントされたファイルシステムの一覧</td>
+</tr>
+<tr class="row-odd"><td>net</td>
+<td>ネットワークに関する設定を含むディレクトリ</td>
+</tr>
+<tr class="row-even"><td>pci</td>
+<td>PCIデバイスのリスト</td>
+</tr>
+<tr class="row-odd"><td>partitions</td>
+<td>システムが認識したパーティション情報</td>
+</tr>
+<tr class="row-even"><td>scsi</td>
+<td>SCSIデバイスの情報を含むディレクトリ</td>
+</tr>
+<tr class="row-odd"><td>self</td>
+<td>カレントプロセスへのシンボリックリンクを含むディレクトリ</td>
+</tr>
+<tr class="row-even"><td>stat</td>
+<td>カーネル全体の統計情報</td>
+</tr>
+<tr class="row-odd"><td>slabinfo</td>
+<td>スラブキャッシュの状態</td>
+</tr>
+<tr class="row-even"><td>swaps</td>
+<td>スワップの利用状況</td>
+</tr>
+<tr class="row-odd"><td>sys</td>
+<td>ネットワークやファイル・アクセスなどの設定を含むディレクトリ</td>
+</tr>
+<tr class="row-even"><td>uptime</td>
+<td>システムの駆動時間</td>
+</tr>
+<tr class="row-odd"><td>version</td>
+<td>Linuxカーネルのバージョン</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id">
+<h4>各プロセスIDが書かれたディレクトリ以下<a class="headerlink" href="#id" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>cmdline</td>
+<td>コマンドライン引数</td>
+</tr>
+<tr class="row-even"><td>environ</td>
+<td>環境変数の値</td>
+</tr>
+<tr class="row-odd"><td>fd</td>
+<td>全てのファイルディスクリプタを含んだディレクトリ</td>
+</tr>
+<tr class="row-even"><td>mem</td>
+<td>プロセスが保持するメモリ</td>
+</tr>
+<tr class="row-odd"><td>stat</td>
+<td>プロセスの状態</td>
+</tr>
+<tr class="row-even"><td>status</td>
+<td>statの表示の可読性を高めたもの</td>
+</tr>
+<tr class="row-odd"><td>cwd</td>
+<td>プロセスの現在の作業ディレクトリへのリンク</td>
+</tr>
+<tr class="row-even"><td>exe</td>
+<td>このプロセスの実行形式へのリンク</td>
+</tr>
+<tr class="row-odd"><td>maps</td>
+<td>メモリマップ</td>
+</tr>
+<tr class="row-even"><td>root</td>
+<td>該当プロセスへのルートディレクトリへのリンク</td>
+</tr>
+<tr class="row-odd"><td>statm</td>
+<td>プロセスのメモリ状態</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>9.7. サーバー管理<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id9">
+<h3>ログイン回避<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>アカウントがない状態で、ログインしなければならない場合の対処法について記す。コンソールアクセスが可能で再起動してもいいのであれば、
+シングルユーザーモードでブートすればよい。Crtl-Alt-Deleteキーを押した後は単にPOST(Power On Self Test:電源投入時や再起動時に自動的に行われるメモリなどのテスト)が実行されるのを待ち、
+カーネルのブート時に <strong>single</strong> というパラメータを渡す。例えば、LILOプロンプトの場合は、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">LILO</span><span class="p">:</span> <span class="n">linux</span> <span class="n">singel</span>
+</pre></div>
+</div>
+<p>でrootのシェルを起動出来るが、RedHatでは使えないときがある。その時は、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">LIL</span><span class="p">:</span> <span class="n">linux</span> <span class="n">init</span><span class="o">=/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="c1"># mount -o remount,rw /</span>
+</pre></div>
+</div>
+<p>とし、起動する。この状態ではネットワークはダウンしており、通常のデーモンは全く起動していないので、パスワードの再設定や1つ2つのファイルに手を加える程度である。
+得に、Ctrl-Dや <strong>exit</strong> と入力しない。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mount -o remount,ro /</span>
+</pre></div>
+</div>
+<p>をする必要がある。というのも、initが起動していないため、システムを安全に停止するためにあるプロセスがない。よって読み込み専用でシャットダウンをする。
+ブートパラメータは調べるとよりおもしろいので、後で調べる。例えば、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">LILO</span><span class="p">:</span> <span class="n">linux</span> <span class="n">single</span> <span class="n">init</span><span class="o">=/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="n">rw</span>
+</pre></div>
+</div>
+<p>と表現することも出来る。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">9. Linux システム関連</a><ul>
+<li><a class="reference internal" href="#id1">9.1. 概要</a></li>
+<li><a class="reference internal" href="#id2">9.2. データベース</a></li>
+<li><a class="reference internal" href="#id3">9.3. Linux バージョン確認</a><ul>
+<li><a class="reference internal" href="#cent-os">Cent OS</a></li>
+<li><a class="reference internal" href="#id4">アーキテクチャを確認する。</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ftp">9.4. FTPコマンドでファイル転送</a></li>
+<li><a class="reference internal" href="#ubuntupukiwiki">9.5. Ubuntuにpukiwikiインストール</a><ul>
+<li><a class="reference internal" href="#apach2-4-php">Apach2.4 &amp; PHP インストール</a></li>
+<li><a class="reference internal" href="#pukiwiki1-5-0">PukiWiki1.5.0を設置</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">9.6. Linux ファイルシステム</a><ul>
+<li><a class="reference internal" href="#proc">/proc</a><ul>
+<li><a class="reference internal" href="#id6">/procの分類</a></li>
+<li><a class="reference internal" href="#id7">Linuxのカーネル内部情報</a></li>
+<li><a class="reference internal" href="#id">各プロセスIDが書かれたディレクトリ以下</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id8">9.7. サーバー管理</a><ul>
+<li><a class="reference internal" href="#id9">ログイン回避</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="learned_linux_apps.html" title="前の章へ">8. Applications on Linux</a></li>
+      <li>Next: <a href="learned_robot.html" title="次の章へ">10. ロボット関連</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/learned_linux_server.txt"
+            rel="nofollow">ソースコードを表示</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Masato.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="_sources/learned_linux_server.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
