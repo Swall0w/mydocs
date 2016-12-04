@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>9. Linux システム関連 &#8212; MyOutput 0.0.1 ドキュメント</title>
+    <title>17. Linux システム関連 &#8212; MyOutput 0.0.1 ドキュメント</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
-    <link rel="next" title="10. ロボット関連" href="learned_robot.html" />
-    <link rel="prev" title="8. Applications on Linux" href="learned_linux_apps.html" />
+    <link rel="next" title="18. ロボット関連" href="learned_robot.html" />
+    <link rel="prev" title="16. Applications on Linux" href="learned_linux_apps.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -45,7 +45,7 @@
           <div class="body" role="main">
             
   <div class="section" id="linux">
-<h1>9. Linux システム関連<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>17. Linux システム関連<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -55,14 +55,131 @@
 </tbody>
 </table>
 <div class="section" id="id1">
-<h2>9.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>17.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>データベースの構築から、インストール、ipの固定までのhow to をまとめていきます。</p>
 </div>
 <div class="section" id="id2">
-<h2>9.2. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>17.2. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="id3">
-<h2>9.3. Linux バージョン確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>17.3. Linux 状態確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="top">
+<h3>Top コマンド<a class="headerlink" href="#top" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>topコマンドで得られる情報は大きく分けて二つある。</p>
+<ul class="simple">
+<li>システム全体の負荷</li>
+<li>プロセス、CPU、メモリ、スワップの統計情報</li>
+</ul>
+<div class="section" id="id4">
+<h4>使い方と操作方法<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>通常鵜はtopと打つだけだが、他にも引数がある。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ top           # CPU使用率順にソート
+$ top -a        # メモリ使用順にソート
+$ top -p [PID]  # 特定のプロセスを監視
+$ top -d1       # 1秒ごとに更新
+</pre></div>
+</div>
+<p>操作方法</p>
+<ul class="simple">
+<li>Shift+o: 表示された特定のキーを押してエンターすると、任意の列でソートできる。</li>
+<li>Shift+p: CPU使用率順にソート</li>
+<li>Shift+m: メモリ使用率順にソート</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h4>ヘッダーの見方<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>load average</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">top</span> <span class="o">-</span> <span class="mi">08</span><span class="p">:</span><span class="mi">42</span><span class="p">:</span><span class="mi">47</span> <span class="n">up</span> <span class="mi">2</span><span class="nb">min</span><span class="p">,</span>  <span class="mi">2</span> <span class="n">users</span><span class="p">,</span>  <span class="n">load</span> <span class="n">average</span><span class="p">:</span> <span class="mf">2.76</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.27</span>
+<span class="c1">#     現在時間 サーバーの  ログイン              1分   5分   15分</span>
+<span class="c1">#              稼働時間   ユーザー数              間の単位時間あたりの待ちタスク数</span>
+</pre></div>
+</div>
+<p>uptimeコマンドと同じ結果が返ってくる。</p>
+<p>Tasks</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Tasks</span><span class="p">:</span> <span class="mi">110</span> <span class="n">total</span><span class="p">,</span>   <span class="mi">7</span> <span class="n">running</span><span class="p">,</span> <span class="mi">103</span> <span class="n">sleeping</span><span class="p">,</span>   <span class="mi">0</span> <span class="n">stopped</span><span class="p">,</span>   <span class="mi">0</span> <span class="n">zombie</span>
+<span class="c1">#      合計タスク数   稼働中       待機中        停止タスク    ゾンビタスク</span>
+</pre></div>
+</div>
+<p>各状態のタスクの数を見ることが出来る。</p>
+<p>CPU</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Cpu</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="mf">77.1</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">8.4</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span>  <span class="mf">0.1</span><span class="o">%</span><span class="nb">id</span><span class="p">,</span> <span class="mf">14.3</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.2</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+<span class="c1">#       user      system    nice     idle   I/O wait hardware  software  steal</span>
+<span class="c1">#                                                    interrupt interrupt</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>ni: niceで実行優先度を変更したプロセスがユーザーモードでCPUを消費した時間</li>
+<li>st: OS仮想化利用時に他の仮想CPUの計算で待たされた時間</li>
+</ul>
+<p>sarのようにCPUの利用時間の割合をプロセスの種類ごとに見ることが出来る。
+1を押すと、CPUごとの情報が見れる。</p>
+<p>Memory/Swap</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Mem</span><span class="p">:</span>  <span class="mi">15144564</span><span class="n">k</span> <span class="n">total</span><span class="p">,</span>  <span class="mi">1178112</span><span class="n">k</span> <span class="n">used</span><span class="p">,</span> <span class="mi">13966452</span><span class="n">k</span> <span class="n">free</span><span class="p">,</span>    <span class="mi">28300</span><span class="n">k</span> <span class="n">buffers</span>
+<span class="n">Swap</span><span class="p">:</span>        <span class="mi">0</span><span class="n">k</span> <span class="n">total</span><span class="p">,</span>        <span class="mi">0</span><span class="n">k</span> <span class="n">used</span><span class="p">,</span>        <span class="mi">0</span><span class="n">k</span> <span class="n">free</span><span class="p">,</span>   <span class="mi">289928</span><span class="n">k</span> <span class="n">cached</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>buffers: mallocなどでバッファとして利用されているメモリ量</li>
+<li>cached : キャッシュとして利用されているメモリ量（ファイルシステムのキャッシュ）</li>
+</ul>
+<p>物理メモリとスワップ領域の使用状況が見れる。freeコマンドでも同じ結果となる。</p>
+<p>プロセス一覧</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="7%" />
+<col width="11%" />
+<col width="14%" />
+<col width="16%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">PR</th>
+<th class="head">NI</th>
+<th class="head">VIRT</th>
+<th class="head">RES</th>
+<th class="head">SHR</th>
+<th class="head">S</th>
+<th class="head">%CPU</th>
+<th class="head">%MEM</th>
+<th class="head">TIME+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>優先度</td>
+<td>相対優先度</td>
+<td>仮想メモリ</td>
+<td>物理メモリ</td>
+<td>共有メモリ</td>
+<td>状態</td>
+<td>CPU使用率</td>
+<td>メモリ使用率</td>
+<td>実行時間</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>NI    : Nice value 相対優先度。0が基準で、負だと優先度が高く、正だと優先度が低い。</li>
+<li>VIRT  : Virtual Image 確保された仮想メモリ全て。スワップしたメモリを含む。</li>
+<li>RES   : Resident size スワップしていない、使用した物理メモリのサイズ</li>
+<li>SHR   : Shared Mem size 他のプロセスと共有される可能性のあるメモリのサイズ</li>
+<li>S     : Process Status 以下のいずれかの状態であるかを示している。</li>
+</ul>
+<ul class="simple">
+<li>D :割り込み不能</li>
+<li>R : 実行中</li>
+<li>S : スリープ中</li>
+<li>T :停止中</li>
+<li>Z :ゾンビプロセス</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>17.4. Linux バージョン確認<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="cent-os">
 <h3>Cent OS<a class="headerlink" href="#cent-os" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Cent OSのバージョン確認:</p>
@@ -71,8 +188,8 @@ CentOS release 6.8 (Final)
 </pre></div>
 </div>
 </div>
-<div class="section" id="id4">
-<h3>アーキテクチャを確認する。<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id7">
+<h3>アーキテクチャを確認する。<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>OSのバージョン確認コマンド:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ arch
 X86_64 &lt;- 64bitの場合
@@ -83,7 +200,7 @@ $ uname -a
 </div>
 </div>
 <div class="section" id="ftp">
-<h2>9.4. FTPコマンドでファイル転送<a class="headerlink" href="#ftp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>17.5. FTPコマンドでファイル転送<a class="headerlink" href="#ftp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>FTPコマンドは、ホスト名とポート番号を指定して起動します。すると、ユーザ名とパスワードを聞いてくるので入力します。ユーザ認証がOKな場合は各種FTPコマンドが使えます。</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -148,7 +265,7 @@ $ uname -a
 </table>
 </div>
 <div class="section" id="ubuntupukiwiki">
-<h2>9.5. Ubuntuにpukiwikiインストール<a class="headerlink" href="#ubuntupukiwiki" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>17.6. Ubuntuにpukiwikiインストール<a class="headerlink" href="#ubuntupukiwiki" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="apach2-4-php">
 <h3>Apach2.4 &amp; PHP インストール<a class="headerlink" href="#apach2-4-php" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>普通にapt-getする。:</p>
@@ -180,21 +297,21 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 <p><a class="reference external" href="http://qiita.com/tuneyukkie/items/e7565fb0856e6a9f517d">http://qiita.com/tuneyukkie/items/e7565fb0856e6a9f517d</a></p>
 </div>
 </div>
-<div class="section" id="id5">
-<h2>9.6. Linux ファイルシステム<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h2>17.7. Linux ファイルシステム<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="proc">
 <h3>/proc<a class="headerlink" href="#proc" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>プロセスやメモリなどのLinuxシステム上のリソース関連情報をあたかもファイルであるかのように配置した
 仮想的なファイルシステム、ファイルを読もうとしたときにOSが動的に生成する
 大体が読み取り可能だが書き込み可能のものもあって(代表的なものは/proc/sys)
 そのファイルを利用すればカーネルのパラメータを変更できる</p>
-<div class="section" id="id6">
-<h4>/procの分類<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id9">
+<h4>/procの分類<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>大きくわけて/proc内にはプロセスIDの数字が書かれたディレクトリとLinuxのカーネル内部情報(cpu関連、メモリ関連等)があるpsやunameなどのコマンドが情報を出力する際に直接参照されている。
 各ファイルはcatなどで参照できる(/proc/kcoreはメモリのイメージでバイナリなので止めた方がいい)</p>
 </div>
-<div class="section" id="id7">
-<h4>Linuxのカーネル内部情報<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id10">
+<h4>Linuxのカーネル内部情報<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="12%" />
@@ -343,10 +460,10 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>9.7. サーバー管理<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id9">
-<h3>ログイン回避<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id11">
+<h2>17.8. サーバー管理<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id12">
+<h3>ログイン回避<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>アカウントがない状態で、ログインしなければならない場合の対処法について記す。コンソールアクセスが可能で再起動してもいいのであれば、
 シングルユーザーモードでブートすればよい。Crtl-Alt-Deleteキーを押した後は単にPOST(Power On Self Test:電源投入時や再起動時に自動的に行われるメモリなどのテスト)が実行されるのを待ち、
 カーネルのブート時に <strong>single</strong> というパラメータを渡す。例えば、LILOプロンプトの場合は、:</p>
@@ -371,6 +488,138 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 <p>と表現することも出来る。</p>
 </div>
 </div>
+<div class="section" id="amazon-linux">
+<h2>17.9. Amazon Linux<a class="headerlink" href="#amazon-linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>cuda構築するときの参考 <a class="reference external" href="http://qiita.com/pyr_revs/items/e1545e6f464b712517ed">http://qiita.com/pyr_revs/items/e1545e6f464b712517ed</a></p>
+<div class="section" id="caffe">
+<h3>Caffeの構築<a class="headerlink" href="#caffe" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="yum">
+<h4>yumで入れられるもの<a class="headerlink" href="#yum" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>できる限りyumで入れる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo yum install protobuf-devel snappy-devel
+</pre></div>
+</div>
+</div>
+<div class="section" id="atlas">
+<h4>Atlasインストール<a class="headerlink" href="#atlas" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>Numpyで演算に使用されるatlasをインストールする。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo yum install atlas-sse3-devel.x86_64
+</pre></div>
+</div>
+<p>環境変数ATLAS,BLAS,LAPACKを設定する。 $HOME/.bashrcに記述する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">ATLAS</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">atlas</span><span class="o">-</span><span class="n">sse3</span><span class="o">/</span><span class="n">libatlas</span><span class="o">.</span><span class="n">a</span>
+<span class="n">export</span> <span class="n">BLAS</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">atlas</span><span class="o">-</span><span class="n">sse3</span><span class="o">/</span><span class="n">libcblas</span><span class="o">.</span><span class="n">a</span>
+<span class="n">export</span> <span class="n">LAPACK</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib64</span><span class="o">/</span><span class="n">atlas</span><span class="o">-</span><span class="n">sse3</span><span class="o">/</span><span class="n">liblapack</span><span class="o">.</span><span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="boost">
+<h4>Boostインストール<a class="headerlink" href="#boost" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>caffeのPythonラッパはboost-pythonというライブラリで開発されている。
+そのため、Boostライブラリが必要になる。 BoostはCaffeでも必要なので、boost-pythonだけでなく全部入れる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo yum install boost-devel.x86_64
+</pre></div>
+</div>
+</div>
+<div class="section" id="anaconda">
+<h4>Anacondaインストール<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>AnacondaはPythonにデータ解析等で使用するライブラリがContinuum Analytics社があらかた準備されているものです。後から自分で入れるものが減るので、使えるならこちらを使う。
+<a class="reference external" href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a></p>
+</div>
+<div class="section" id="opencv">
+<h4>OpenCVインストール<a class="headerlink" href="#opencv" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>opencvはcmakeでビルドするため、yumでインストールする。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo yum instal cmake
+</pre></div>
+</div>
+<p>Linux版のアーカイブを公式からダウンロードする。解凍したディレクトリで以下のコマンドを実行していく。
+<a class="reference external" href="http://opencv.org/downloads.html">http://opencv.org/downloads.html</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ mkdir build
+$ cd build/
+$ cmake ..
+$ make
+$ sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="glog">
+<h4>glogインストール<a class="headerlink" href="#glog" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>glogのアーカイブをダウンロードし、ビルドする。 <a class="reference external" href="https://code.google.com/p/google-glog/">https://code.google.com/p/google-glog/</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./configure
+$ make
+$ make check
+$ sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="gflags">
+<h4>gflagsインストール<a class="headerlink" href="#gflags" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>gflagsのアーカイブをダウンロードし、ビルドする。<a class="reference external" href="https://code.google.com/p/gflags/">https://code.google.com/p/gflags/</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ mkdir build
+$ cd build/
+$ CXXFLAGS=&quot;-fPIC&quot; cmake ..
+$ make
+$ sudo make install
+</pre></div>
+</div>
+<p>-fPICをつけておかないと、caffeにリンクすることが出来ないので注意。</p>
+</div>
+<div class="section" id="leveldb">
+<h4>leveldbインストール<a class="headerlink" href="#leveldb" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>leveldbのアーカイブをダウンロードし、ビルドする。 <a class="reference external" href="https://code.google.com/p/leveldb/">https://code.google.com/p/leveldb/</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make
+$ make check
+$ cd ..
+$ sudo mv leveldb-1.15.0 /opt/leveldb
+</pre></div>
+</div>
+</div>
+<div class="section" id="hdf5">
+<h4>hdf5インストール<a class="headerlink" href="#hdf5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>hdf5のアーカイブをダウンロードし、ビルドする。<a class="reference external" href="https://support.hdfgroup.org/HDF5/release/obtainsrc.html">https://support.hdfgroup.org/HDF5/release/obtainsrc.html</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./configure --prefix=/usr/local/hdf5 --enable-fortran --enable-cxx
+$ make
+$ make check
+$ sudo make install
+$ sudo make check-install
+</pre></div>
+</div>
+</div>
+<div class="section" id="lmdb">
+<h4>lmdbインストール<a class="headerlink" href="#lmdb" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>gitoriousのリポジトリからソースコードを取得し、ビルド、インストールする。 <a class="reference external" href="https://gitorious.org/mdb/mdb">https://gitorious.org/mdb/mdb</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://gitorious.org/mdb/mdb.git
+$ cd mdb/libraries/liblmdb/
+$ make -j8
+$ make -j8 test
+$ sudo mkdir /usr/local/man
+$ sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h4>Caffeインストール<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>githubからcaffeのコードを取得し、ビルドする。<a class="reference external" href="https://github.com/BVLC/caffe.git">https://github.com/BVLC/caffe.git</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/BVLC/caffe.git
+$ cd caffe
+$ cp Makefile.config.example Makefile.config
+</pre></div>
+</div>
+<p>Makefile.configでpython、atlas、GPU、CPU設定をする。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make all
+$ make test
+$ make runtest
+</pre></div>
+</div>
+<p>runtestをするために、環境変数の設定が必要である。(.bashrcに追記)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/leveldb:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -381,31 +630,56 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">9. Linux システム関連</a><ul>
-<li><a class="reference internal" href="#id1">9.1. 概要</a></li>
-<li><a class="reference internal" href="#id2">9.2. データベース</a></li>
-<li><a class="reference internal" href="#id3">9.3. Linux バージョン確認</a><ul>
-<li><a class="reference internal" href="#cent-os">Cent OS</a></li>
-<li><a class="reference internal" href="#id4">アーキテクチャを確認する。</a></li>
+<li><a class="reference internal" href="#">17. Linux システム関連</a><ul>
+<li><a class="reference internal" href="#id1">17.1. 概要</a></li>
+<li><a class="reference internal" href="#id2">17.2. データベース</a></li>
+<li><a class="reference internal" href="#id3">17.3. Linux 状態確認</a><ul>
+<li><a class="reference internal" href="#top">Top コマンド</a><ul>
+<li><a class="reference internal" href="#id4">使い方と操作方法</a></li>
+<li><a class="reference internal" href="#id5">ヘッダーの見方</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ftp">9.4. FTPコマンドでファイル転送</a></li>
-<li><a class="reference internal" href="#ubuntupukiwiki">9.5. Ubuntuにpukiwikiインストール</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">17.4. Linux バージョン確認</a><ul>
+<li><a class="reference internal" href="#cent-os">Cent OS</a></li>
+<li><a class="reference internal" href="#id7">アーキテクチャを確認する。</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ftp">17.5. FTPコマンドでファイル転送</a></li>
+<li><a class="reference internal" href="#ubuntupukiwiki">17.6. Ubuntuにpukiwikiインストール</a><ul>
 <li><a class="reference internal" href="#apach2-4-php">Apach2.4 &amp; PHP インストール</a></li>
 <li><a class="reference internal" href="#pukiwiki1-5-0">PukiWiki1.5.0を設置</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5">9.6. Linux ファイルシステム</a><ul>
+<li><a class="reference internal" href="#id8">17.7. Linux ファイルシステム</a><ul>
 <li><a class="reference internal" href="#proc">/proc</a><ul>
-<li><a class="reference internal" href="#id6">/procの分類</a></li>
-<li><a class="reference internal" href="#id7">Linuxのカーネル内部情報</a></li>
+<li><a class="reference internal" href="#id9">/procの分類</a></li>
+<li><a class="reference internal" href="#id10">Linuxのカーネル内部情報</a></li>
 <li><a class="reference internal" href="#id">各プロセスIDが書かれたディレクトリ以下</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8">9.7. サーバー管理</a><ul>
-<li><a class="reference internal" href="#id9">ログイン回避</a></li>
+<li><a class="reference internal" href="#id11">17.8. サーバー管理</a><ul>
+<li><a class="reference internal" href="#id12">ログイン回避</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#amazon-linux">17.9. Amazon Linux</a><ul>
+<li><a class="reference internal" href="#caffe">Caffeの構築</a><ul>
+<li><a class="reference internal" href="#yum">yumで入れられるもの</a></li>
+<li><a class="reference internal" href="#atlas">Atlasインストール</a></li>
+<li><a class="reference internal" href="#boost">Boostインストール</a></li>
+<li><a class="reference internal" href="#anaconda">Anacondaインストール</a></li>
+<li><a class="reference internal" href="#opencv">OpenCVインストール</a></li>
+<li><a class="reference internal" href="#glog">glogインストール</a></li>
+<li><a class="reference internal" href="#gflags">gflagsインストール</a></li>
+<li><a class="reference internal" href="#leveldb">leveldbインストール</a></li>
+<li><a class="reference internal" href="#hdf5">hdf5インストール</a></li>
+<li><a class="reference internal" href="#lmdb">lmdbインストール</a></li>
+<li><a class="reference internal" href="#id13">Caffeインストール</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -415,8 +689,8 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="learned_linux_apps.html" title="前の章へ">8. Applications on Linux</a></li>
-      <li>Next: <a href="learned_robot.html" title="次の章へ">10. ロボット関連</a></li>
+      <li>Previous: <a href="learned_linux_apps.html" title="前の章へ">16. Applications on Linux</a></li>
+      <li>Next: <a href="learned_robot.html" title="次の章へ">18. ロボット関連</a></li>
   </ul></li>
 </ul>
 </div>

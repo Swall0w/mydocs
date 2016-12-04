@@ -9,7 +9,7 @@ Welcome to MyOutput's documentation!
 Contents:
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :numbered: 2
 
     learned_machine_learning

@@ -11,6 +11,89 @@ Linux システム関連
 データベース
 ====================================
 
+Linux 状態確認
+====================================
+
+Top コマンド
+------------------------------------
+topコマンドで得られる情報は大きく分けて二つある。
+
+* システム全体の負荷
+* プロセス、CPU、メモリ、スワップの統計情報
+
+使い方と操作方法
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+通常鵜はtopと打つだけだが、他にも引数がある。 ::
+    
+    $ top           # CPU使用率順にソート
+    $ top -a        # メモリ使用順にソート
+    $ top -p [PID]  # 特定のプロセスを監視
+    $ top -d1       # 1秒ごとに更新
+
+操作方法
+
+* Shift+o: 表示された特定のキーを押してエンターすると、任意の列でソートできる。
+* Shift+p: CPU使用率順にソート
+* Shift+m: メモリ使用率順にソート
+
+ヘッダーの見方
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+load average ::
+
+    top - 08:42:47 up 2min,  2 users,  load average: 2.76, 0.76, 0.27
+    #     現在時間 サーバーの  ログイン              1分   5分   15分
+    #              稼働時間   ユーザー数              間の単位時間あたりの待ちタスク数
+
+uptimeコマンドと同じ結果が返ってくる。
+
+Tasks ::
+
+    Tasks: 110 total,   7 running, 103 sleeping,   0 stopped,   0 zombie
+    #      合計タスク数   稼働中       待機中        停止タスク    ゾンビタスク
+
+各状態のタスクの数を見ることが出来る。
+
+CPU ::
+
+    Cpu(s): 77.1%us,  8.4%sy,  0.0%ni,  0.1%id, 14.3%wa,  0.0%hi,  0.2%si,  0.0%st
+    #       user      system    nice     idle   I/O wait hardware  software  steal
+    #                                                    interrupt interrupt
+
+* ni: niceで実行優先度を変更したプロセスがユーザーモードでCPUを消費した時間
+* st: OS仮想化利用時に他の仮想CPUの計算で待たされた時間
+
+sarのようにCPUの利用時間の割合をプロセスの種類ごとに見ることが出来る。
+1を押すと、CPUごとの情報が見れる。
+
+Memory/Swap ::
+
+    Mem:  15144564k total,  1178112k used, 13966452k free,    28300k buffers
+    Swap:        0k total,        0k used,        0k free,   289928k cached
+
+* buffers: mallocなどでバッファとして利用されているメモリ量
+* cached : キャッシュとして利用されているメモリ量（ファイルシステムのキャッシュ）
+
+物理メモリとスワップ領域の使用状況が見れる。freeコマンドでも同じ結果となる。
+
+プロセス一覧 
+
+======= =========== =========== =========== =========== ======= =========== ============== ================
+PR       NI          VIRT          RES      SHR          S           %CPU     %MEM            TIME+
+======= =========== =========== =========== =========== ======= =========== ============== ================
+優先度  相対優先度  仮想メモリ  物理メモリ  共有メモリ  状態    CPU使用率   メモリ使用率    実行時間
+======= =========== =========== =========== =========== ======= =========== ============== ================
+
+* NI    : Nice value 相対優先度。0が基準で、負だと優先度が高く、正だと優先度が低い。
+* VIRT  : Virtual Image 確保された仮想メモリ全て。スワップしたメモリを含む。
+* RES   : Resident size スワップしていない、使用した物理メモリのサイズ
+* SHR   : Shared Mem size 他のプロセスと共有される可能性のあるメモリのサイズ
+* S     : Process Status 以下のいずれかの状態であるかを示している。
+- D :割り込み不能
+- R : 実行中
+- S : スリープ中
+- T :停止中
+- Z :ゾンビプロセス
+
 Linux バージョン確認
 ====================================
 
@@ -187,3 +270,129 @@ statm       プロセスのメモリ状態
     LILO: linux single init=/bin/bash rw
 
 と表現することも出来る。
+
+Amazon Linux
+====================================
+cuda構築するときの参考 http://qiita.com/pyr_revs/items/e1545e6f464b712517ed
+
+Caffeの構築
+------------------------------------
+yumで入れられるもの
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+できる限りyumで入れる。 ::
+
+    $ sudo yum install protobuf-devel snappy-devel
+
+Atlasインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Numpyで演算に使用されるatlasをインストールする。 ::
+
+    $ sudo yum install atlas-sse3-devel.x86_64
+
+環境変数ATLAS,BLAS,LAPACKを設定する。 $HOME/.bashrcに記述する。 ::
+
+    export ATLAS=/usr/lib64/atlas-sse3/libatlas.a
+    export BLAS=/usr/lib64/atlas-sse3/libcblas.a
+    export LAPACK=/usr/lib64/atlas-sse3/liblapack.a
+
+Boostインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+caffeのPythonラッパはboost-pythonというライブラリで開発されている。 
+そのため、Boostライブラリが必要になる。 BoostはCaffeでも必要なので、boost-pythonだけでなく全部入れる。 ::
+
+    $ sudo yum install boost-devel.x86_64
+
+
+Anacondaインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AnacondaはPythonにデータ解析等で使用するライブラリがContinuum Analytics社があらかた準備されているものです。後から自分で入れるものが減るので、使えるならこちらを使う。
+https://www.continuum.io/downloads 
+
+OpenCVインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+opencvはcmakeでビルドするため、yumでインストールする。 ::
+
+    $ sudo yum instal cmake
+
+Linux版のアーカイブを公式からダウンロードする。解凍したディレクトリで以下のコマンドを実行していく。 
+http://opencv.org/downloads.html ::
+
+    $ mkdir build
+    $ cd build/
+    $ cmake ..
+    $ make
+    $ sudo make install
+
+glogインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+glogのアーカイブをダウンロードし、ビルドする。 https://code.google.com/p/google-glog/ ::
+
+    $ ./configure
+    $ make 
+    $ make check
+    $ sudo make install
+
+gflagsインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gflagsのアーカイブをダウンロードし、ビルドする。https://code.google.com/p/gflags/ ::
+
+    $ mkdir build
+    $ cd build/
+    $ CXXFLAGS="-fPIC" cmake ..
+    $ make
+    $ sudo make install
+
+-fPICをつけておかないと、caffeにリンクすることが出来ないので注意。
+
+leveldbインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+leveldbのアーカイブをダウンロードし、ビルドする。 https://code.google.com/p/leveldb/ ::
+
+    $ make
+    $ make check
+    $ cd ..
+    $ sudo mv leveldb-1.15.0 /opt/leveldb
+
+hdf5インストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hdf5のアーカイブをダウンロードし、ビルドする。https://support.hdfgroup.org/HDF5/release/obtainsrc.html ::
+
+    $ ./configure --prefix=/usr/local/hdf5 --enable-fortran --enable-cxx
+    $ make 
+    $ make check
+    $ sudo make install
+    $ sudo make check-install
+
+lmdbインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+gitoriousのリポジトリからソースコードを取得し、ビルド、インストールする。 https://gitorious.org/mdb/mdb ::
+
+    $ git clone https://gitorious.org/mdb/mdb.git
+    $ cd mdb/libraries/liblmdb/
+    $ make -j8
+    $ make -j8 test
+    $ sudo mkdir /usr/local/man
+    $ sudo make install
+
+Caffeインストール
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+githubからcaffeのコードを取得し、ビルドする。https://github.com/BVLC/caffe.git ::
+
+    $ git clone https://github.com/BVLC/caffe.git
+    $ cd caffe
+    $ cp Makefile.config.example Makefile.config
+
+Makefile.configでpython、atlas、GPU、CPU設定をする。 ::
+
+    $ make all
+    $ make test
+    $ make runtest
+
+runtestをするために、環境変数の設定が必要である。(.bashrcに追記) ::
+    
+    export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/opt/leveldb:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
+
+
+

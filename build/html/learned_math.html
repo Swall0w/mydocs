@@ -65,9 +65,66 @@
 
 (a - b)^2 = a^2 - 2ab + b^2"/></p>
 </div><p>こんな感じに書いていきます。</p>
-</div>
 <div class="section" id="id4">
-<h2>2.3. 線形代数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>尤度関数<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>尤度関数の概念は「サンプリングしてデータが観測された後、
+そのデータは元々どういうパラメータをもつ確率分布から生まれたものだったか？」
+という問いに答えるもの。
+逆確率的なベイズの定理っぽさがあると感じる。ここで、正規分布について示す。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy.random</span> <span class="k">as</span> <span class="nn">rd</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">min_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">s</span>
+<span class="n">max_x</span> <span class="o">=</span> <span class="n">m</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">s</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>ここで、標本が10個手に入り、 <img class="math" src="_images/math/07050b06aad08359972d23689132c13988272818.png" alt="x_1 , x_2 , ...., x_{10}"/> が正規分布に従うことが
+わかっているが、平均 <img class="math" src="_images/math/68e6cc0629a43c7f9a0623025267958570d02160.png" alt="mu"/> 標準偏差 <img class="math" src="_images/math/48c52174fa8fe42ae9f67aa39a174329e17b4cad.png" alt="sigma"/> の2つのパラメータの値
+がどれくらいなのか不明であるという状況を考える。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">rd</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>「10個の標本がこの値となった同時分布」を考える。
+また、この10個の標本はidd(独立同一分布:同じ分布から独立にとられた標本)である
+と仮定する。独立なので、それぞれの確率密度の積として表せるので、</p>
+<div class="math">
+<p><img src="_images/math/1835b9442f384f6aef16520cee9676117ca5bf81.png" alt="P(x_1,x_2,..., x_{10}) = P(x_1)P(x_2)...P(x_{10})"/></p>
+</div><p>となる。ここで、 <img class="math" src="_images/math/1caced160ce5062cff846e7a63c6ca716f0b32d4.png" alt="P(x_i)"/> は全て正規分布としていたので、</p>
+<div class="math">
+<p><img src="_images/math/ccd49c09c37c53a3db1d2b1c63a2c299a6b41d52.png" alt="P(x_1,x_2,..., x_{10}) = f(x_1)f(x_2)...f(x_{10})"/></p>
+</div><p>としても良い。これをさらに展開していくと、</p>
+<div class="math">
+<p><img src="_images/math/c0bf771593513d08897f3089201197ff9e363635.png" alt="P(x_1,x_2,..., x_{10}) = \prod_{i=1}^{10} \frac{1}{\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2}\frac{(x_i - \mu)^2}{\sigma^2})"/></p>
+</div><p>これは標本10個の同時確率密度関数である。しかし、今回標本は実現値として持っているので、不確定な確率的な値ではない。
+確定値である。むしろ分かっていないのは、平均 <img class="math" src="_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> 、標準偏差 <img class="math" src="_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> の2つのパラメータである。
+なので、 <img class="math" src="_images/math/7720e563212e11bf72de255ab82c2a3b97c1a7f5.png" alt="x_i"/> は定数と考え、<img class="math" src="_images/math/d79e8a2c7ce54906c2b25549da38bdbe02cf40d6.png" alt="\mu"/> 、 <img class="math" src="_images/math/011e5790a6c33043ceadca81d9657dde6c61d769.png" alt="\sigma"/> であると宣言し直したものを尤度(likelihood)と
+定義し、</p>
+<div class="math">
+<p><img src="_images/math/e31c67575ef9ea47188f3657b5fbedf1ea96f2ec.png" alt="L(\mu,\sigma) = \prod_{i=1}^{10} \frac{1}{\sqrt{2\pi\sigma^2}}exp(-\frac{1}{2}\frac{(x_i - \mu)^2}{\sigma^2})"/></p>
+</div><p>式自体は変わらないが、意味合いが全く異なる。これをグラフにして理解する。
+<img class="math" src="_images/math/396461218c07e3a8b177f7c8d4197c312be51fd4.png" alt="\mu,\sigma"/> が不明なので、仮に <img class="math" src="_images/math/c780911784b2dce29f3a1a66c3b63cdab8e7678d.png" alt="\mu = 0, \sigma = 1"/> だと思って、グラフを書くと、</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>2.3. 線形代数<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 </div>
 
@@ -81,8 +138,11 @@
   <ul>
 <li><a class="reference internal" href="#">2. 数学</a><ul>
 <li><a class="reference internal" href="#id2">2.1. 概要</a></li>
-<li><a class="reference internal" href="#id3">2.2. 確率統計</a></li>
-<li><a class="reference internal" href="#id4">2.3. 線形代数</a></li>
+<li><a class="reference internal" href="#id3">2.2. 確率統計</a><ul>
+<li><a class="reference internal" href="#id4">尤度関数</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id5">2.3. 線形代数</a></li>
 </ul>
 </li>
 </ul>

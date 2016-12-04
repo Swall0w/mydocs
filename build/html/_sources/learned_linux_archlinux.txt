@@ -31,7 +31,7 @@ UEFIの場合は/bootは512MB以上のvfatが必要。今回の構成は/bootが
 
 ファイルシステムの構築
 ------------------------------------
-それぞれのパーティションをフォーマットする。::
+それぞれのパーティションをフォーマットする。 ::
 
     # mkfs.vfat -F32 /dev/sda1
     # mkfs.ext4 /dev/sda2  
@@ -258,6 +258,34 @@ GUIまとも化
 
     # pacman -S gvfs
 
+Xtermの設定
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xterm起動時は基本的にに白い画面になってしまうため、Xtermの設定が必要である。
+Xtermの設定は.Xresourcesに書く。 ::
+
+    XTerm*utf8              : 1
+    XTerm*locale            : true
+    XTerm*selectToClipboard : true
+    XTerm*faceName          : 'Monospace'
+    XTerm*faceSize          : 13
+    XTerm*cjkWidth          : true
+    XTerm*background        : black
+    XTerm*foreground        : white
+    XTerm*saveLines         : 2000
+    XTerm*geometry          : 100x30+300+100
+
+最低限必要なのは、faceNameとfacesizeであり、それぞれ、使用フォントとサイズである。
+使えるフォントを調べるには、 ::
+    $ fc-list
+
+あとで細かく追記する。
+http://note.kurodigi.com/xterm-customize/
+http://incompleteness-theorems.at.webry.info/201009/article_6.html
+その後、ターミナルより、 ::
+
+    $ xrdb .Xresouces
+
+を実行して、反映する。これで、次回の実行時から設定が反映される。
 
 起動しないときに
 ====================================

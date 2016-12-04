@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8. Applications on Linux &#8212; MyOutput 0.0.1 ドキュメント</title>
+    <title>16. Applications on Linux &#8212; MyOutput 0.0.1 ドキュメント</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
-    <link rel="next" title="9. Linux システム関連" href="learned_linux_server.html" />
-    <link rel="prev" title="7. Arch Linux" href="learned_linux_archlinux.html" />
+    <link rel="next" title="17. Linux システム関連" href="learned_linux_server.html" />
+    <link rel="prev" title="15. Arch Linux" href="learned_linux_archlinux.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -45,7 +45,7 @@
           <div class="body" role="main">
             
   <div class="section" id="applications-on-linux">
-<h1>8. Applications on Linux<a class="headerlink" href="#applications-on-linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>16. Applications on Linux<a class="headerlink" href="#applications-on-linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -55,13 +55,21 @@
 </tbody>
 </table>
 <div class="section" id="id1">
-<h2>8.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>16.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Linux上で動かすアプリケーションの使い方、コツについて載せていきます。</p>
 </div>
 <div class="section" id="shell">
-<h2>8.2. shell<a class="headerlink" href="#shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>16.2. shell<a class="headerlink" href="#shell" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
-<h3>プロンプトの表示を変更するには<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>端末出力をコピー<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>xselコマンドを使うと内容がクリップボードと共有できる。:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">xsel</span> <span class="o">--</span><span class="n">clipboard</span> <span class="o">--</span><span class="nb">input</span>
+<span class="n">xsel</span> <span class="o">--</span><span class="n">clipboard</span> <span class="o">--</span><span class="n">output</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>プロンプトの表示を変更するには<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ログインして以下のように表示されるのがプロンプトです。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>[swallow@arch~]$
 </pre></div>
@@ -132,10 +140,10 @@
 </div>
 <p>これは再ログインすると設定が元に戻ってしまうので、永続した設定にするには、.bashrcにさっきのものを記述する。</p>
 </div>
-<div class="section" id="id3">
-<h3>ターミナル上でのショートカット<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id4">
-<h4>一覧<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h3>ターミナル上でのショートカット<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id5">
+<h4>一覧<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="4%" />
@@ -184,18 +192,523 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id5">
-<h4>コピー &amp; ペースト<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id6">
+<h4>コピー &amp; ペースト<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>コピーしたい文字列をマウスで選択するとコピーできます。ペーストしたいときは、3ボタンマウスの真ん中のボタンを押すか、「Shift + Insert」キーを押せばペーストできます。</p>
 </div>
 </div>
 </div>
 <div class="section" id="vim">
-<h2>8.3. Vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id6">
-<h3>画面分割<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="id7">
-<h4>ウィンドウ分割<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h2>16.3. Vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="vi">
+<h3>viの基本コマンドまとめ<a class="headerlink" href="#vi" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>編集コマンド</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%" />
+<col width="17%" />
+<col width="19%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">テキストオブジェクト</th>
+<th class="head">変更</th>
+<th class="head">削除</th>
+<th class="head">コピー</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1語</td>
+<td>cw</td>
+<td>dw</td>
+<td>yw</td>
+</tr>
+<tr class="row-odd"><td>2語(句読点は入れない)</td>
+<td>2cW</td>
+<td>2dW</td>
+<td>2yW</td>
+</tr>
+<tr class="row-even"><td>3語前まで</td>
+<td>3cb</td>
+<td>3db</td>
+<td>3yb</td>
+</tr>
+<tr class="row-odd"><td>1行</td>
+<td>cc</td>
+<td>dd</td>
+<td>yy Y</td>
+</tr>
+<tr class="row-even"><td>行末まで</td>
+<td>c$ C</td>
+<td>d$ D</td>
+<td>y$</td>
+</tr>
+<tr class="row-odd"><td>行頭まで</td>
+<td>c0</td>
+<td>d0</td>
+<td>y0</td>
+</tr>
+<tr class="row-even"><td>1文字</td>
+<td>r</td>
+<td>x X</td>
+<td>yl yh</td>
+</tr>
+<tr class="row-odd"><td>5文字</td>
+<td>5s</td>
+<td>5x</td>
+<td>5yl</td>
+</tr>
+</tbody>
+</table>
+<p>移動コマンド</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="74%" />
+<col width="26%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">移動</th>
+<th class="head">コマンド</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1画面分順方向にスクロール</td>
+<td>^F</td>
+</tr>
+<tr class="row-odd"><td>1画面分逆方向にスクロール</td>
+<td>^B</td>
+</tr>
+<tr class="row-even"><td>1/2画面順方向にスクロール</td>
+<td>^D</td>
+</tr>
+<tr class="row-odd"><td>1/2画面逆方向にスクロール</td>
+<td>^U</td>
+</tr>
+<tr class="row-even"><td>1行分順方向にスクロール</td>
+<td>^E</td>
+</tr>
+<tr class="row-odd"><td>1行分逆方向にスクロール</td>
+<td>^Y</td>
+</tr>
+<tr class="row-even"><td>カレント行が画面の一番上になるようにスクロール</td>
+<td>z[Enter]</td>
+</tr>
+<tr class="row-odd"><td>カレント行が画面の中央になるようにスクロール</td>
+<td><ol class="first last loweralpha simple" start="26">
+<li></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td>カレント行が画面の一番下になるようにスクロール</td>
+<td>z-</td>
+</tr>
+<tr class="row-odd"><td>画面を書き直す</td>
+<td>^L</td>
+</tr>
+<tr class="row-even"><td>ホーム(画面の一番上の行)にジャンプ</td>
+<td>H</td>
+</tr>
+<tr class="row-odd"><td>画面の中央行にジャンプ</td>
+<td>M</td>
+</tr>
+<tr class="row-even"><td>画面の最下行にジャンプ</td>
+<td>L</td>
+</tr>
+<tr class="row-odd"><td>次の行の1文字目にジャンプ</td>
+<td>[Enter]</td>
+</tr>
+<tr class="row-even"><td>次の行の1文字目にジャンプ</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>前の行の1文字目にジャンプ</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>カレント行の空白以外の1文字目に移動</td>
+<td>^</td>
+</tr>
+<tr class="row-odd"><td>カレント行のn桁目に移動</td>
+<td>n|</td>
+</tr>
+<tr class="row-even"><td>単語の末尾にジャンプ</td>
+<td>e</td>
+</tr>
+<tr class="row-odd"><td>単語(句読点も単語の一部とする)にジャンプ</td>
+<td>E</td>
+</tr>
+<tr class="row-even"><td>現在の文の先頭にジャンプ</td>
+<td>(</td>
+</tr>
+<tr class="row-odd"><td>次の文の先頭にジャンプ</td>
+<td>)</td>
+</tr>
+<tr class="row-even"><td>現在の段落の先頭にジャンプ</td>
+<td>{</td>
+</tr>
+<tr class="row-odd"><td>次の段落の先頭にジャンプ</td>
+<td>}</td>
+</tr>
+<tr class="row-even"><td>現在のセクションの先頭にジャンプ</td>
+<td>[[</td>
+</tr>
+<tr class="row-odd"><td>次のセクションの先頭にジャンプ</td>
+<td>]]</td>
+</tr>
+<tr class="row-even"><td>パターンを順方向に検索</td>
+<td>/pattern</td>
+</tr>
+<tr class="row-odd"><td>パターンを逆方向に検索</td>
+<td>?pattern</td>
+</tr>
+<tr class="row-even"><td>検索を繰り返す</td>
+<td>n</td>
+</tr>
+<tr class="row-odd"><td>反対方向で検索を繰り返す</td>
+<td>N</td>
+</tr>
+<tr class="row-even"><td>順方向に検索を繰り返す</td>
+<td>/[Enter]</td>
+</tr>
+<tr class="row-odd"><td>逆方向に検索を繰り返す</td>
+<td>?[Enter]</td>
+</tr>
+<tr class="row-even"><td>カレント行の次のxに移動</td>
+<td>fx</td>
+</tr>
+<tr class="row-odd"><td>カレント行の前のxに移動</td>
+<td>Fx</td>
+</tr>
+<tr class="row-even"><td>カレント行の次のxの直前に移動</td>
+<td>tx</td>
+</tr>
+<tr class="row-odd"><td>カレント行の前のxの直前に移動</td>
+<td>Tx</td>
+</tr>
+<tr class="row-even"><td>直前の検索コマンドを同じ方向で繰り返す</td>
+<td>;</td>
+</tr>
+<tr class="row-odd"><td>直前の検索コマンドを反対方向で繰り返す</td>
+<td>,</td>
+</tr>
+<tr class="row-even"><td>n行目にジャンプ</td>
+<td>nG</td>
+</tr>
+<tr class="row-odd"><td>ファイルの末尾にジャンプ</td>
+<td>G</td>
+</tr>
+<tr class="row-even"><td>直前のマークまたは文脈に戻る</td>
+<td><a href="#id7"><span class="problematic" id="id8">``</span></a></td>
+</tr>
+<tr class="row-odd"><td>直前のマークを含む行の先頭に戻る</td>
+<td>&#8216;&#8217;</td>
+</tr>
+<tr class="row-even"><td>カレント行の情報を表示</td>
+<td>^G</td>
+</tr>
+</tbody>
+</table>
+<p>その他
+2行連結         J</p>
+<p>テキストの作成操作のコマンド</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">編集動作</th>
+<th class="head">コマンド</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>現在位置にテキストを挿入</td>
+<td>i</td>
+</tr>
+<tr class="row-odd"><td>行頭にテキストを挿入</td>
+<td>I</td>
+</tr>
+<tr class="row-even"><td>現在位置のうしろにテキストを挿入</td>
+<td>a</td>
+</tr>
+<tr class="row-odd"><td>行末にテキストを追加</td>
+<td>A</td>
+</tr>
+<tr class="row-even"><td>新しい行を下にオープン</td>
+<td>o</td>
+</tr>
+<tr class="row-odd"><td>新しい行を上にオープン</td>
+<td>O</td>
+</tr>
+<tr class="row-even"><td>行を削除してテキストを置換</td>
+<td>S</td>
+</tr>
+<tr class="row-odd"><td>現在文字を新しいテキストで上書き</td>
+<td>R</td>
+</tr>
+<tr class="row-even"><td>現在行と次行を連結</td>
+<td>J</td>
+</tr>
+<tr class="row-odd"><td>大文字と小文字を入れ変える</td>
+<td>~</td>
+</tr>
+<tr class="row-even"><td>最後の動作を繰り返す</td>
+<td>.</td>
+</tr>
+<tr class="row-odd"><td>最後の変更を取り消す</td>
+<td>u</td>
+</tr>
+<tr class="row-even"><td>行を最初の状態に復元する</td>
+<td>U</td>
+</tr>
+</tbody>
+</table>
+<p>いろいろな編集例</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="22%" />
+<col width="20%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">変更</th>
+<th class="head">削除</th>
+<th class="head">コピー</th>
+<th class="head">カーソル位置から</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>cH</td>
+<td>dH</td>
+<td>yH</td>
+<td>画面の最上行まで</td>
+</tr>
+<tr class="row-odd"><td>cL</td>
+<td>dL</td>
+<td>yL</td>
+<td>画面の最下行まで</td>
+</tr>
+<tr class="row-even"><td>c+</td>
+<td>d+</td>
+<td>y+</td>
+<td>次の行まで</td>
+</tr>
+<tr class="row-odd"><td>c5|</td>
+<td>d5|</td>
+<td>y5|</td>
+<td>カレント行の5桁目まで</td>
+</tr>
+<tr class="row-even"><td>2c)</td>
+<td>2d)</td>
+<td>2y)</td>
+<td>2つあとの文まで</td>
+</tr>
+<tr class="row-odd"><td>c{</td>
+<td>d{</td>
+<td>y{</td>
+<td>前の段落まで</td>
+</tr>
+<tr class="row-even"><td>c/pattern</td>
+<td>d/pattern</td>
+<td>y/pattern</td>
+<td>patternまで</td>
+</tr>
+<tr class="row-odd"><td>cn</td>
+<td>dn</td>
+<td>yn</td>
+<td>次のpatternまで</td>
+</tr>
+<tr class="row-even"><td>cG</td>
+<td>dG</td>
+<td>yG</td>
+<td>ファイルの終わりまで</td>
+</tr>
+<tr class="row-odd"><td>c13G</td>
+<td>d13G</td>
+<td>y13G</td>
+<td>13行めまで</td>
+</tr>
+</tbody>
+</table>
+<p>特定の位置からファイルを編集するには以下のとおりである</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ vim +n file           n行目の位置でfileをオープン
+$ vim + file            最終行の位置でfileをオープン
+$ vim +/pattern file    最初にpatternが見つかった位置でfileをオープン
+$ vim +/&quot;you make&quot; file もし2語以上になるのであれば、囲む
+</pre></div>
+</div>
+<p>読み出し専用モードで開く</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ vim -R file
+</pre></div>
+</div>
+<p>バッファの復旧</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ex -r
+または
+$ vim -r
+</pre></div>
+</div>
+<div class="section" id="id9">
+<h4>バッファの利用<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>削除した内容は最後の9つまでバッファに保存される。例えば、最後から2番目の削除内容を復元したい場合、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;2p</span>
+</pre></div>
+</div>
+<p>とすると、バッファ2の内容がカーソルの後に挿入される。自分が復元したい削除内容がどのバッファに入っているのかわからない場合でも&#8221;npを何度もタイプする必要はない。
+pのあとに、uと繰り返しコマンド.をタイプすれば、バッファ番号が自動的に繰り上がるからである。よって、次の様に番号付きバッファを順に確認していける。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;1pu.u.u   ....</span>
+</pre></div>
+</div>
+<p>こうするとバッファ内容が一つづつ順番にファイルに復元される。つまり、毎回uを押すたびに復元されたテキストが取り除かれ、.を押したときにその次のバッファ内容がファイルに復元される。</p>
+<p>名前付きでバッファに保存することができる。名前付きバッファは26(a~z)個あり、名前付きバッファにヤンクするにはヤンクコマンドの前にダブルクォート“とヤンク先のバッファ名の文字をつければいい。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;dyy        カレント行をバッファdにヤンク</span>
+<span class="s2">&quot;a7yy       7行をバッファaにヤンク</span>
+</pre></div>
+</div>
+<p>名前付きバッファにテキストをロードして別の場所に移動したら、次の用にpかPを使ってテキストを復元する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;dP         バッファdの内容をカーソルの前に挿入</span>
+<span class="s2">&quot;ap         バッファaの内容をカーソル後に挿入</span>
+</pre></div>
+</div>
+<p>テキストを削除して、名前付きバッファに記憶する作業も上記とほとんど同じ感じである。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;a5dd       5行削除してバッファaに入れる</span>
+</pre></div>
+</div>
+<p>バッファ名を大文字で指定すると、ヤンクしたり削除したテキストがそのバッファの現在の内容の末尾に追加される。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;zd)        カーソル位置から現在の文の末尾まで削除して、バッファzに保存</span>
+<span class="mi">2</span><span class="p">)</span>          <span class="mi">2</span><span class="n">つあとの文にジャンプ</span>
+<span class="s2">&quot;Zy)        その次の文をバッファzに追加</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>位置のマーク<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>viのセッション中には、ファイル中に見えないしおりをはさめる。コマンドモードで以下のものを実行する。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>mx</td>
+<td>現在の位置にxというマークをつける</td>
+</tr>
+<tr class="row-even"><td>&#8216;x</td>
+<td>シングルクォートxでマークした行の1行めにカーソルを移動</td>
+</tr>
+<tr class="row-odd"><td><a href="#id11"><span class="problematic" id="id12">`</span></a>x</td>
+<td>バッククォートxでマークしていた文字にカーソルを移動</td>
+</tr>
+<tr class="row-even"><td><a href="#id13"><span class="problematic" id="id14">``</span></a></td>
+<td>移動して直前のマークまたは文脈の位置に戻る</td>
+</tr>
+<tr class="row-odd"><td>&#8216;&#8217;</td>
+<td>著事前のマークまたは文脈のある行の先頭に戻る</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ex">
+<h4>exコマンド<a class="headerlink" href="#ex" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="17%" />
+<col width="53%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>delete</td>
+<td>d</td>
+<td>行の削除</td>
+</tr>
+<tr class="row-even"><td>move</td>
+<td>m</td>
+<td>行移動</td>
+</tr>
+<tr class="row-odd"><td>copy</td>
+<td>co</td>
+<td>行のコピー</td>
+</tr>
+<tr class="row-even"><td>copy</td>
+<td>t</td>
+<td>行のコピー(同じ)</td>
+</tr>
+</tbody>
+</table>
+<p>使い方を以下に示す。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="mi">18</span><span class="n">d</span>              <span class="mi">3</span><span class="o">~</span><span class="mi">18</span><span class="n">行目を削除</span>
+<span class="p">:</span><span class="mi">160</span><span class="p">,</span><span class="mi">224</span><span class="n">m23</span>         <span class="mi">160</span><span class="o">~</span><span class="mi">224</span><span class="n">行目を23行目の後に移動</span>
+<span class="p">:</span><span class="mi">23</span><span class="p">,</span><span class="mi">29</span><span class="n">co100</span>         <span class="mi">23</span><span class="o">~</span><span class="mi">29</span><span class="n">行目を100行目の後にコピー</span>
+</pre></div>
+</div>
+<p>行に関する情報が知りたい場合、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="o">=</span>                  <span class="n">行の総数を表示</span>
+<span class="p">:</span><span class="o">.=</span>                 <span class="n">カレント行の行番号を表示</span>
+<span class="p">:</span><span class="o">/</span><span class="n">pattern</span><span class="o">/=</span>         <span class="n">patternにマッチする最初の行の番号を表示</span>
+</pre></div>
+</div>
+<p>ドット.はカレント行、$はファイルの最終行をそれぞれ表す。また、%はファイルの全ての行という意味で、1,$という組み合わせと同じである。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:.,$d               カレント行からファイルの最終行まで削除
+:20,.m$             20行目からカレント行までをファイルの最後に移動
+:%d                 ファイル中のすべての行を削除
+:%t$                全ての行をコピーして、ファイルの終わりに追加
+</pre></div>
+</div>
+<p>+,-により、カレント行相対アドレスも指定できる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:.,.+20d            カレント行から次の20行まで削除
+:226,$m.-2          226行目からファイルの終わりまでを、カレント行の2行前に移動
+:.,+20#             カレント行から20行先の行までの行番号を表示
+</pre></div>
+</div>
+<p>検索パターンについて示す。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:/pattern/d                 次にpatternが出現する行を削除
+:/pattern/+d                次にpatternが出現する行の下の行を削除
+:/pattern1/,/pattern2/d     pattern1を含む最初の行からpattern2を含む最初の行までを削除
+:.,/pattern3/m23            カレント行からpatternを含む最初の行までのテキストを削除して、23行目の後ろに挿入する。
+</pre></div>
+</div>
+<p>書き込みと読み込み</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:230,$w newfile             230行からファイルまでをnewfileにセーブ
+:1,10w newfile              1から10行めまでをファイルにセーブ
+:340,$w &gt;&gt; newfile          リダイレクトで追加でファイルに書き込み
+:read filename              別のファイルの読み込み :r で短縮系
+:r /home/tim/data           カレント行に読み込み
+:185r /home/tim/data        185行目あとに読み込み
+:/pattern/r /home/data      読み込んだファイルを現在のファイルのpatternを含む行の後に入れる。
+:wq                         ファイルを書き込んで終了する。ファイルが変更されなかった時でも無条件に書き込みが実行される。
+:x                          ファイルを書き込んで終了する。ファイルが変更された場合のみ書き込みが実行される。
+</pre></div>
+</div>
+<p>:x,:wqの違いはソースコードを変更してmakeを使用するときに重要になる。makeはファイルの修正日時に基づいて動作するためである。</p>
+</div>
+<div class="section" id="id15">
+<h4>一括置換<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>置換コマンドの構文は次のとおりである。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span>
+</pre></div>
+</div>
+<p>この構文は、カレント行で最初に出現するoldというパターンをnewに置きかえる。スラッシュはコマンドの各部分を区切る印である。また、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>これは、最初に出現するパターンだけでなく、全てのoldをnewに変更する。例えば、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:50,100s/old/new/g          50~100行目に出現する全てのoldをnewnに変更する。
+:1,$s/old/new/g             ファイル全体で全てのoldをnewに変更する。
+:%s/old/new/g               上と同じ。
+:1,30s/his/the/gc           c(確認)をつけることで、確認しながら置換出来る。
+</pre></div>
+</div>
+<p>確認をしながらやる場合は、置換したいときはyとエンターが必要である。変更したくなければ、エンターのみ押せば変更されず、次の候補にいく。</p>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>画面分割<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id17">
+<h4>ウィンドウ分割<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -216,8 +729,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id8">
-<h4>ウィンドウ移動<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id18">
+<h4>ウィンドウ移動<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -247,8 +760,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id9">
-<h4>ウィンドウそのものを移動<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id19">
+<h4>ウィンドウそのものを移動<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -278,8 +791,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id10">
-<h4>カレントウィンドウの大きさを変更<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id20">
+<h4>カレントウィンドウの大きさを変更<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="36%" />
@@ -315,8 +828,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id11">
-<h4>タブ関連<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id21">
+<h4>タブ関連<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="34%" />
@@ -340,8 +853,8 @@
 </tbody>
 </table>
 </div>
-<div class="section" id="id12">
-<h4>閉じる<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id22">
+<h4>閉じる<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="40%" />
@@ -369,19 +882,145 @@
 <blockquote>
 <div>:%s/&gt;&lt;/&gt;r&lt;/g | filetype indent on | setf xml | normal gg=G</div></blockquote>
 </div>
+<div class="section" id="id23">
+<h3>その他<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Unixコマンドを実行したくなった場合は、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:!command
+</pre></div>
+</div>
+<p>で実行出来る。enterですぐに戻ることが出きるが、いくつか実行したい場合は、次のexコマンドでシェルを起動すればいい。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>シェルを終了して戻りたい問いは、Ctrl+Dで戻れる。
+また、:readをUnixの呼び出しと組み合わせれば、Unixコマンドの結果を自分のファイルに読み込めるようになる。単純な例としては、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:r !date
+Sat Dec  3 16:32:25 JST 2016
+</pre></div>
+</div>
+<p>こうすれば、システム日時情報が自分のファイルのテキスト中に読み込まれる。:rコマンドの前に行アドレスをつければ、コマンドの結果をファイル中の好きな位置に挿入出来る。
+指定しなければ、カレント行に読み込まれる。
+他と手羽、ファイル編集中に別のファイルを読み込みたいとする。test.txtの中身は</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Yoji</span>    <span class="mi">23</span>
+<span class="n">Ami</span>     <span class="mi">17</span>
+<span class="n">Yuko</span>    <span class="mi">50</span>
+</pre></div>
+</div>
+<p>となっている。この場合、以下のコマンドを実行すれば、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:r !sort test.txt
+Ami     17
+Yoji    23
+Yuko    50
+</pre></div>
+</div>
+<p>となり、ファイルの中身がソートして挿入される。また、この名簿が別のファイルではなく、現在のファイルの96から98行目にはいっているとする。この時は、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>:96,98!sort
+</pre></div>
+</div>
+<p>でフィルタ処理結果を得ることが出来る。</p>
+</div>
 </div>
 <div class="section" id="zip">
-<h2>8.4. zip<a class="headerlink" href="#zip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>16.4. zip<a class="headerlink" href="#zip" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="zipzip">
 <h3>zipコマンドでディレクトリをzip化する<a class="headerlink" href="#zipzip" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div>$ zip -r 生成するzipファイル名 zip化するディレクトリ</div></blockquote>
 </div>
 </div>
+<div class="section" id="mecab">
+<h2>16.5. MeCab<a class="headerlink" href="#mecab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id24">
+<h3>インストール<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>インストール方法を以下に示す。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">taku910</span><span class="o">/</span><span class="n">mecab</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">mecab</span><span class="o">/</span><span class="n">mecab</span>
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">utf8</span><span class="o">-</span><span class="n">only</span>
+<span class="n">make</span>
+<span class="n">make</span> <span class="n">check</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>インストールが終わると、mecabが配置される。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mecabrc</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">mecab</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mecab</span><span class="o">-</span><span class="n">config</span>
+</pre></div>
+</div>
+<p>辞書のダウンロードを続けて行う。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">macab</span><span class="o">-</span><span class="n">ipadic</span>
+<span class="o">./</span><span class="n">configure</span> <span class="o">--</span><span class="k">with</span><span class="o">-</span><span class="n">charset</span><span class="o">=</span><span class="n">utf8</span>
+<span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>この時点でコンソールからmecabを起動し、使用することが出来る。
+pythonで使用する場合を次に示す。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mecab</span><span class="o">-</span><span class="n">python3</span>
+</pre></div>
+</div>
+<p>これでpythonから使えるはずであるが、トラブルがあったため、それについて示す。pythonからimportした際に、
+libmecab.so.2が存在しないというエラーが生じた。ファイルがあるかを確認する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ls /usr/local/lib/libmecab.so.2
+/usr/local/lib/libmecab.so.2
+</pre></div>
+</div>
+<p>ld.so.confに/usr/local/libを追記する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ vim /etc/ld.so.conf
+</pre></div>
+</div>
+<p>修正後ファイル</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">include</span> <span class="n">ld</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/*.</span><span class="n">conf</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span>
+</pre></div>
+</div>
+<p>ld.so.confの設定を反映する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo ldconfig
+</pre></div>
+</div>
+<p>反映後にpythonから使用出来る。</p>
+<p><a class="reference external" href="http://qiita.com/saicologic/items/ab70e14f7e2ec2ee0b4d">http://qiita.com/saicologic/items/ab70e14f7e2ec2ee0b4d</a></p>
+</div>
+</div>
+<div class="section" id="nkf">
+<h2>16.6. nkf<a class="headerlink" href="#nkf" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>日本語の処理を行うコマンドのインストールについて示す。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">jaist</span><span class="o">.</span><span class="n">dl</span><span class="o">.</span><span class="n">sourceforge</span><span class="o">.</span><span class="n">jp</span><span class="o">/</span><span class="n">nkf</span><span class="o">/</span><span class="mi">48945</span><span class="o">/</span><span class="n">nkf</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mf">1.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">tar</span> <span class="n">xzvf</span> <span class="n">nkf</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mf">1.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">cd</span> <span class="n">nkf</span><span class="o">-</span><span class="mf">2.1</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">make</span>
+<span class="c1"># /usr/localの中のbinとmanにインストールされる。</span>
+<span class="n">make</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>nkfで文字コードを確認する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ nkf -g ikinokozo.txt
+Shift_JIS(CR)
+</pre></div>
+</div>
+<p>Shift_JISからUTF-8に変更する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ nkf -w --overwrite ikinokozo.txt
+</pre></div>
+</div>
+<p>UTF-8に変更されたか確認する。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ nkf -g ikinokozo.txt
+UTF-8(CR)
+</pre></div>
+</div>
+</div>
 <div class="section" id="github">
-<h2>8.5. github<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id13">
-<h3>事前知識<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>16.7. github<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="git">
+<h3>Gitとは<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Gitはバージョン管理システム(Version Control Sytem)であり、ファイルの履歴を管理するシステムである。何らかのサ行によって生成されたファイルについて複数の履歴(バージョン)を記録し、
+あとから、古いバージョンの取り出しや差分の参照が出来る仕組みである。このファイルの履歴をリポジトリ、履歴の一つひとつをコミットと呼び、履歴をリポジトリに追加や登録することを
+コミットと呼ぶ。</p>
+<p>バージョン管理システムは、複数人数で同一のファイルを編集する必要がある時に、その力を発揮する。例えば、テキストファイルをサーバにおいて共有していたとする。この状態で編集やコピーを続けていると、
+誰が最新版を持っているのかやどこを変更したのかなどの履歴が分からなくなってします。ここでのバージョン管理システムを導入すると、変更点と変更者、変更日時を管理出きるようになる。</p>
+<p>VCSは個別バージョン管理システム、クライアント・サーバ型の集中型バージョン管理システム、分散型バージョン管理システムの3種類あり、Gitは分散型である。</p>
+</div>
+<div class="section" id="id25">
+<h3>事前知識<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>リポジトリとは、ファイルやディレクトリの状態を保存する場所である。
 更履歴を管理したいディレクトリなどをリポジトリの管理下に置くことで、そのディレクトリ内のファイルなどの変更履歴を記録することができる。</p>
 <ul class="simple">
@@ -421,8 +1060,8 @@ $ git config --global user.mail {mail address}
 </pre></div>
 </div>
 </div>
-<div class="section" id="id14">
-<h3>GitHubでレポジトリを作成する。<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id26">
+<h3>GitHubでレポジトリを作成する。<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まずは、リポジトリを作成する。GitHubにログインした状態で、右下の「New Repository」ボタンを押す。
 次に表示される画面で、「Repository name」の入力後に「Description」も入力する。</p>
 <p>また、リポジトリの種類をPublicかPrivateを選択する。最後にリポジトリの中にあらかじめREADMEファイルを作成しておく場合は、
@@ -430,8 +1069,8 @@ $ git config --global user.mail {mail address}
 <p>必要項目の入力が終わり、「Create repository」ボタンをクリックするとリポジトリの作成は完了する。
 次の画面でリモートリポジトリのアドレスが表示されるため、控えておく。</p>
 </div>
-<div class="section" id="id15">
-<h3>ローカルリポジトリ<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id27">
+<h3>ローカルリポジトリ<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ローカルディレクトリを作成し、そこを初期化する。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>mkdir hoge
 cd $_
@@ -441,8 +1080,8 @@ git init
 <p>「git init」コマンドはgitリポジトリを新たに作成するコマンドである。バージョン管理を行っていない既存のプロジェクトをgitリポジトリに変換する場合や、
 空の新規リポジトリを作成して初期化する場合に使用する。このコマンドの実行によりカレントディレクトリをgitリポジトリに変換する。</p>
 </div>
-<div class="section" id="id16">
-<h3>GitHubのリモート先を指定<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id28">
+<h3>GitHubのリモート先を指定<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>foo を github のユーザ名、bar をプロジェクト名で、それぞれ置き換える。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ git remote add origin git@github.com:foo/bar.git
 </pre></div>
@@ -467,8 +1106,9 @@ git init
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
 </pre></div>
 </div>
-<p>リモートリポジトリに反映される前に、リモートリポジトリの情報を追加する。この情報はgithub所に表示されるリモートリポジトリのアドレスである。例として、:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">//</span><span class="n">hogehoge</span><span class="o">.</span><span class="n">git</span>
+<p>リモートリポジトリに反映される前に、リモートリポジトリの情報を追加する。
+この情報はgithub所に表示されるリモートリポジトリのアドレスである。例として、:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">hoge</span><span class="o">/</span><span class="n">foo</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
@@ -479,6 +1119,18 @@ git init
 </pre></div>
 </div>
 <p>GitHubのユーザ名とパスワードを尋ねられるため、入力する。これが終わると、リモートレポジトリへ反映出来る。</p>
+</div>
+<div class="section" id="id29">
+<h3>GitHub新規リポジトリの場合<a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下転載:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;# mydocs&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;first commit&quot;</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Swall0w</span><span class="o">/</span><span class="n">mydocs</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -491,43 +1143,59 @@ git init
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">8. Applications on Linux</a><ul>
-<li><a class="reference internal" href="#id1">8.1. 概要</a></li>
-<li><a class="reference internal" href="#shell">8.2. shell</a><ul>
-<li><a class="reference internal" href="#id2">プロンプトの表示を変更するには</a></li>
-<li><a class="reference internal" href="#id3">ターミナル上でのショートカット</a><ul>
-<li><a class="reference internal" href="#id4">一覧</a></li>
-<li><a class="reference internal" href="#id5">コピー &amp; ペースト</a></li>
+<li><a class="reference internal" href="#">16. Applications on Linux</a><ul>
+<li><a class="reference internal" href="#id1">16.1. 概要</a></li>
+<li><a class="reference internal" href="#shell">16.2. shell</a><ul>
+<li><a class="reference internal" href="#id2">端末出力をコピー</a></li>
+<li><a class="reference internal" href="#id3">プロンプトの表示を変更するには</a></li>
+<li><a class="reference internal" href="#id4">ターミナル上でのショートカット</a><ul>
+<li><a class="reference internal" href="#id5">一覧</a></li>
+<li><a class="reference internal" href="#id6">コピー &amp; ペースト</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#vim">8.3. Vim</a><ul>
-<li><a class="reference internal" href="#id6">画面分割</a><ul>
-<li><a class="reference internal" href="#id7">ウィンドウ分割</a></li>
-<li><a class="reference internal" href="#id8">ウィンドウ移動</a></li>
-<li><a class="reference internal" href="#id9">ウィンドウそのものを移動</a></li>
-<li><a class="reference internal" href="#id10">カレントウィンドウの大きさを変更</a></li>
-<li><a class="reference internal" href="#id11">タブ関連</a></li>
-<li><a class="reference internal" href="#id12">閉じる</a></li>
+<li><a class="reference internal" href="#vim">16.3. Vim</a><ul>
+<li><a class="reference internal" href="#vi">viの基本コマンドまとめ</a><ul>
+<li><a class="reference internal" href="#id9">バッファの利用</a></li>
+<li><a class="reference internal" href="#id10">位置のマーク</a></li>
+<li><a class="reference internal" href="#ex">exコマンド</a></li>
+<li><a class="reference internal" href="#id15">一括置換</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id16">画面分割</a><ul>
+<li><a class="reference internal" href="#id17">ウィンドウ分割</a></li>
+<li><a class="reference internal" href="#id18">ウィンドウ移動</a></li>
+<li><a class="reference internal" href="#id19">ウィンドウそのものを移動</a></li>
+<li><a class="reference internal" href="#id20">カレントウィンドウの大きさを変更</a></li>
+<li><a class="reference internal" href="#id21">タブ関連</a></li>
+<li><a class="reference internal" href="#id22">閉じる</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#xml">Xmlファイルの整形</a></li>
+<li><a class="reference internal" href="#id23">その他</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#zip">8.4. zip</a><ul>
+<li><a class="reference internal" href="#zip">16.4. zip</a><ul>
 <li><a class="reference internal" href="#zipzip">zipコマンドでディレクトリをzip化する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#github">8.5. github</a><ul>
-<li><a class="reference internal" href="#id13">事前知識</a></li>
+<li><a class="reference internal" href="#mecab">16.5. MeCab</a><ul>
+<li><a class="reference internal" href="#id24">インストール</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nkf">16.6. nkf</a></li>
+<li><a class="reference internal" href="#github">16.7. github</a><ul>
+<li><a class="reference internal" href="#git">Gitとは</a></li>
+<li><a class="reference internal" href="#id25">事前知識</a></li>
 <li><a class="reference internal" href="#githubssh">githubとssh接続</a></li>
-<li><a class="reference internal" href="#id14">GitHubでレポジトリを作成する。</a></li>
-<li><a class="reference internal" href="#id15">ローカルリポジトリ</a></li>
-<li><a class="reference internal" href="#id16">GitHubのリモート先を指定</a></li>
+<li><a class="reference internal" href="#id26">GitHubでレポジトリを作成する。</a></li>
+<li><a class="reference internal" href="#id27">ローカルリポジトリ</a></li>
+<li><a class="reference internal" href="#id28">GitHubのリモート先を指定</a></li>
 <li><a class="reference internal" href="#git-git-add">ファイルの作成・変更・削除をgitのインデックスに追加する(git add)</a></li>
 <li><a class="reference internal" href="#git-commit">変更結果をローカルリポジトリにコミットする(git commit)</a></li>
 <li><a class="reference internal" href="#git-push">ローカルリポジトリをプッシュしてリモートレポジトリへ反映させる(git push)</a></li>
+<li><a class="reference internal" href="#id29">GitHub新規リポジトリの場合</a></li>
 </ul>
 </li>
 </ul>
@@ -537,8 +1205,8 @@ git init
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="learned_linux_archlinux.html" title="前の章へ">7. Arch Linux</a></li>
-      <li>Next: <a href="learned_linux_server.html" title="次の章へ">9. Linux システム関連</a></li>
+      <li>Previous: <a href="learned_linux_archlinux.html" title="前の章へ">15. Arch Linux</a></li>
+      <li>Next: <a href="learned_linux_server.html" title="次の章へ">17. Linux システム関連</a></li>
   </ul></li>
 </ul>
 </div>
