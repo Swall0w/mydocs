@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. 概要 &#8212; MyOutput 0.0.1 ドキュメント</title>
+    <title>4. Python &#8212; MyOutput 0.0.1 ドキュメント</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,8 @@
         VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,8 +27,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
-    <link rel="next" title="13. C++" href="learned_programing_cpp.html" />
+    <link rel="next" title="5. C++" href="learned_programing_cpp.html" />
     <link rel="prev" title="3. アルゴリズム" href="learned_algorithm.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -44,15 +44,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="id1">
-<h1>4. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="python">
+<h1>4. Python<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">著者:</th><td class="field-body">Masato</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id1">
+<h2>4.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Python言語で役に立ったこと、つまったことについてまとめます。ライブラリの簡単な使い方などについてもまとめました。
 ディープラーニングで使うNumpyや文字列処理についてもまとめてあるので、確認しながら仕様してください。明記していない限りはPython3での使用でまとめています。</p>
 </div>
-<div class="section" id="python">
-<h1>5. Python関連<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>4.2. Python関連<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="help">
-<h2>5.1. Helpするには<a class="headerlink" href="#help" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>Helpするには<a class="headerlink" href="#help" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>対話モード内で、対象に調べたいオブジェクトを設定</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">対象</span><span class="p">)</span>
 </pre></div>
@@ -61,9 +71,9 @@
 </div>
 </div>
 <div class="section" id="anaconda">
-<h1>6. Anaconda<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>4.3. Anaconda<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="command-flow">
-<h2>6.1. Command Flow<a class="headerlink" href="#command-flow" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>Command Flow<a class="headerlink" href="#command-flow" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Anacondaのコマンドは基本condaで行う。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>仮想環境を作成(virtualenvみたいな)
 conda create -n my_env numpy scipy
@@ -98,16 +108,16 @@ conda create -n my_new_env --file conda_requirement.txt
 </div>
 </div>
 <div class="section" id="opencv-insatall">
-<h2>6.2. OpenCV Insatall<a class="headerlink" href="#opencv-insatall" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>OpenCV Insatall<a class="headerlink" href="#opencv-insatall" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>conda install -c <a class="reference external" href="https://conda.binstar.org/menpo">https://conda.binstar.org/menpo</a> opencv3</p>
 </div>
 </div>
 <div class="section" id="sphinx">
-<h1>7. Sphinx<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="id2">
-<h2>7.1. 数式コマンド<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.4. Sphinx<a class="headerlink" href="#sphinx" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
-<h3>ベクトル(太字)<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>数式コマンド<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id4">
+<h4>ベクトル(太字)<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>数式中でのベクトルは太文字の斜体にする必要がある。簡単に太文字にするには <strong>bm</strong> を使用する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">math</span><span class="p">::</span>
 
@@ -120,8 +130,8 @@ conda create -n my_new_env --file conda_requirement.txt
 </div>
 <p>と、bmパッケージの宣言を追加する必要がある。</p>
 </div>
-<div class="section" id="id4">
-<h3>大きい括弧<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id5">
+<h4>大きい括弧<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>括弧中に分数を入れるときは、高さのある括弧が必要になる。以下のコマンドで数式を囲むと式の高さに応じて、括弧の高さが変わる。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>\<span class="n">left</span><span class="p">(</span> \<span class="n">right</span><span class="p">)</span>
 \<span class="n">left</span><span class="p">{</span> \<span class="n">right</span>\<span class="p">}</span>
@@ -137,7 +147,7 @@ conda create -n my_new_env --file conda_requirement.txt
 </div>
 </div>
 <div class="section" id="dlib-selective-search">
-<h1>8. dlib Selective Search<a class="headerlink" href="#dlib-selective-search" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>4.5. dlib Selective Search<a class="headerlink" href="#dlib-selective-search" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>dlibのインストールとselective searchについて説明する。まずはdlibをダウンロードする。
 <a class="reference external" href="http://dlib.net/">http://dlib.net/</a> 解凍したフォルダで、var18.18からは</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
@@ -182,9 +192,9 @@ conda create -n my_new_env --file conda_requirement.txt
 </div>
 </div>
 <div class="section" id="mecab-word2vec">
-<h1>9. MeCab &amp; word2vec<a class="headerlink" href="#mecab-word2vec" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="id5">
-<h2>9.1. 分かち<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.6. MeCab &amp; word2vec<a class="headerlink" href="#mecab-word2vec" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id6">
+<h3>分かち<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>MeCabのインストール方法ついてはLinuxのほうで示す。まずは分かちから行う。
 出力フォーマットについてはこちら→ <a class="reference external" href="https://taku910.github.io/mecab/format.html">https://taku910.github.io/mecab/format.html</a></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
@@ -212,7 +222,7 @@ conda create -n my_new_env --file conda_requirement.txt
 </div>
 </div>
 <div class="section" id="word2vec">
-<h2>9.2. word2vec<a class="headerlink" href="#word2vec" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>word2vec<a class="headerlink" href="#word2vec" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>分かち書きできたので、word2vecを行う。ベクトルの次元数は100、skip-gramモデルを用いて、階層的ソフトマックスで
 学習させる。ネガティブサンプリングはないとする。
 ちなみに、インターネット上にある word2vec を試してみました的なエントリのいくつかでは、
@@ -258,15 +268,33 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </div>
 <p><a class="reference external" href="http://m0t0k1ch1st0ry.com/blog/2016/08/28/word2vec/">http://m0t0k1ch1st0ry.com/blog/2016/08/28/word2vec/</a></p>
 </div>
+<div class="section" id="wikipedia">
+<h3>Wikipediaのデータから学習<a class="headerlink" href="#wikipedia" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id7">
+<h4>日本語wikipediaのデータ<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>2GB以上あるが以下でダウンロードする。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dumps</span><span class="o">.</span><span class="n">wikimedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">jawiki</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">jawiki</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">pages</span><span class="o">-</span><span class="n">articles</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">bz2</span> <span class="o">-</span><span class="n">o</span> <span class="n">jawiki</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">pages</span><span class="o">-</span><span class="n">articles</span><span class="o">.</span><span class="n">xml</span><span class="o">.</span><span class="n">bz2</span>
+</pre></div>
 </div>
-<div class="section" id="numpy">
-<h1>10. Numpy<a class="headerlink" href="#numpy" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>PythonでNumpyを利用するには、インポートする。</p>
+<p>データファイルはXMLで記述されているので、それを普通のテキストファイルに変換する必要がある。
+今回はこれを使用した。記述があるようにインストールする。 <a class="reference external" href="https://github.com/attardi/wikiextractor">https://github.com/attardi/wikiextractor</a></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ mkdir extracted
+$ WikiExtractor.py jawiki-latest-pages-articles.xml -o extracted/
+</pre></div>
+</div>
+<p><a class="reference external" href="http://qiita.com/tsuruchan/items/7d3af5c5e9182230db4e">http://qiita.com/tsuruchan/items/7d3af5c5e9182230db4e</a>
+<a class="reference external" href="http://www.trifields.jp/convert-to-plain-text-from-wikipedia-by-wikiextractor-1046">http://www.trifields.jp/convert-to-plain-text-from-wikipedia-by-wikiextractor-1046</a>
+Numpyの使い方
+====================================
+pythonで高速な計算を行うためには、リストではなく、Numpyを用いる。
+PythonでNumpyを利用するには、インポートする。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<div class="section" id="id6">
-<h2>10.1. 配列の生成<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>配列の生成<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>配列のデータ構造はarrayである。要素が1,2,3,4,5となっている配列は、以下のように作成する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="go">array([1,2,3,4,5])</span>
@@ -312,8 +340,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </pre></div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>10.2. 配列の生成<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id9">
+<h3>配列の生成<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>配列のデータ構造はarrayである。要素が1,2,3,4,5となっている配列は、以下のように作成する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
 <span class="go">array([1,2,3,4,5])</span>
@@ -418,8 +446,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </pre></div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>10.3. 配列の加工<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id10">
+<h3>配列の加工<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>aとbを2x3の配列とする。aの右をbに連結させて2x6の配列を作るにはhstack、aの下にbを連結させて4x3の配列を作るにはvstackを使う。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
@@ -506,8 +534,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </pre></div>
 </div>
 </div>
-<div class="section" id="id9">
-<h2>10.4. 配列に対する演算<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id11">
+<h3>配列に対する演算<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>配列に対して数値に関する演算を適用させると、配列内全ての数値にその演算が適用されることに注意する。
 これはベクトルの演算と同じである。ただし、演算はmathで定義されているものではなく、Numpyで定義されている演算である必要がある。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
@@ -607,8 +635,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </pre></div>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>10.5. 配列の保存と読み出し<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id12">
+<h3>配列の保存と読み出し<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p>配列のイメージをファイルに保存しておき、別のプログラムでそのファイルから配列のイメージを読み出すようにする。pickleを使うと、配列に限らずどのようなオブジェクトでも保存とその読み書きが出来る。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
@@ -665,11 +693,11 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </div>
 </div>
 </div>
-<div class="section" id="id11">
-<h1>11. リスト<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id13">
+<h2>4.7. リスト<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="scikit-learn">
-<h1>12. SciKit-Learn<a class="headerlink" href="#scikit-learn" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h2>4.8. SciKit-Learn<a class="headerlink" href="#scikit-learn" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>機械学習を行うためのツールであるscikit-learnの使い方についてまとめる。
 機械学習に大事なこと。</p>
 <ul class="simple">
@@ -677,7 +705,7 @@ Cython実装では、GILをリリースして並列化されているので、Py
 <li>正しい評価を行うこと。</li>
 </ul>
 <div class="section" id="iris">
-<h2>12.1. Irisデータセット分類<a class="headerlink" href="#iris" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>Irisデータセット分類<a class="headerlink" href="#iris" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>アイリスデータセットは、1930年からある伝統的なデータセットである。データの中身は、アイリスという花に関するデータの一つであり、3つのことなる品種のサンプルデータから構成されている。
 品種は花の形状から分類することが出来る。アイリスを対象に次の4つの要素がそれぞれ測定されている。</p>
 <ul class="simple">
@@ -687,8 +715,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 <li>花弁の幅(Petal width)</li>
 </ul>
 <p>データセットには、4つの特徴量に加えて、花の品種(Setosa, Virginica, Versicolor)も記録されている。</p>
-<div class="section" id="id12">
-<h3>可視化<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id14">
+<h4>可視化<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>サンプル数は150で特徴量は4であり、データは非常に小さいので、全ての点を描画でkりう。また、二次元からなるグラフに描画する場合、軸として採用する特徴量の組み合わせについても全て描画できる。
 まずは、グラフ化することで対称とするデータについて感覚を掴む。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -789,8 +817,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 <img alt="_images/BuildingMachineLearningCh02img02.png" src="_images/BuildingMachineLearningCh02img02.png" />
 </div>
 </div>
-<div class="section" id="id13">
-<h2>12.2. 次元圧縮<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id15">
+<h3>次元圧縮<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>機械学習で問題になることは特徴量をどのようにとるかということである。問題の本質を見抜き、学習器が完治できる特別な特徴量に注意深く設計する必要がある。
 そのために、無関係な特徴量や冗長な特徴量を削除することである次元削減(Dimentyonality reuction)が必要となる。必要のない特徴量を学習器にいれても学習器のなかで、
 重みを0になるため問題がないように思えるが、特徴量は多ければ多いほうがいいと感じる。しかし、実際にはそうではない。</p>
@@ -814,9 +842,9 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </div></blockquote>
 </div>
 <div class="section" id="d">
-<h2>12.3. 3Dモデルの可視化<a class="headerlink" href="#d" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id14">
-<h3>必要なライブラリ<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>3Dモデルの可視化<a class="headerlink" href="#d" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id16">
+<h4>必要なライブラリ<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>3Dモデルの可視化について記す。まずは、3Dモデルを書くためのライブラリをインポートする。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
@@ -828,23 +856,23 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </pre></div>
 </div>
 </div>
-<div class="section" id="id15">
-<h3>サンプルデータからの訓練データ生成<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id17">
+<h4>サンプルデータからの訓練データ生成<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <dl class="docutils">
 <dt>サンプルデータがあるため、これを訓練データに基づいた分類を行う。  ::</dt>
 <dd>X, y = make_regression(n_samples=100, n_features=2, n_informative=1, random_state=0, noise=50)</dd>
 </dl>
 </div>
-<div class="section" id="id16">
-<h3>訓練データと試験データの分割<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id18">
+<h4>訓練データと試験データの分割<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>生成したデータを訓練と試験について8:2で分割する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:</span><span class="mi">80</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span>
 <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="mi">80</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id17">
-<h3>分類器の訓練<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id19">
+<h4>分類器の訓練<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>準備が出来たら、訓練を行う。まずは、分類機のインスタンスを生成し、.fitメソッドで分類器を訓練する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
 <span class="c1"># 訓練する</span>
@@ -854,23 +882,23 @@ Cython実装では、GILをリリースして並列化されているので、Py
 </pre></div>
 </div>
 </div>
-<div class="section" id="id18">
-<h3>値の予測<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id20">
+<h4>値の予測<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>次に訓練データに基づいたy値を予測する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id19">
-<h3>評価<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id21">
+<h4>評価<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>結果を評価する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">regr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="id20">
-<h3>可視化<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id22">
+<h4>可視化<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>数値だけでは直感的ではないので、最後に可視化する。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>        <span class="p">[</span>  <span class="mf">0.</span><span class="p">,</span>   <span class="mf">0.</span><span class="p">,</span>  <span class="mf">13.</span><span class="p">,</span>  <span class="mf">15.</span><span class="p">,</span>  <span class="mf">10.</span><span class="p">,</span>  <span class="mf">15.</span><span class="p">,</span>   <span class="mf">5.</span><span class="p">,</span>   <span class="mf">0.</span><span class="p">],</span>
         <span class="p">[</span>  <span class="mf">0.</span><span class="p">,</span>   <span class="mf">3.</span><span class="p">,</span>  <span class="mf">15.</span><span class="p">,</span>   <span class="mf">2.</span><span class="p">,</span>   <span class="mf">0.</span><span class="p">,</span>  <span class="mf">11.</span><span class="p">,</span>   <span class="mf">8.</span><span class="p">,</span>   <span class="mf">0.</span><span class="p">],</span>
@@ -891,8 +919,8 @@ Cython実装では、GILをリリースして並列化されているので、Py
 <p>で画像にアクセス出来る。</p>
 <img alt="_images/ScikitLearnTutorialDigits8.png" src="_images/ScikitLearnTutorialDigits8.png" />
 </div>
-<div class="section" id="id21">
-<h3>学習と予測<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id23">
+<h4>学習と予測<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>digitsの場合、課題は10クラスに分類し、予測することである。scikit-learnでは分類の予測器はPythonの組み込みオブジェクトfit(X,y)が用意されている。そして、予測にはpredict(T)がある。
 簡単な学習にはsklearn.svm.SVCが使える。引数はいくつかのパラメーターがあり、それをチューニングすることにより、学習を変化させることが出来る。簡単な例のため、デフォルト値を使うが、ガンマパラメータは
 grid searchやcross validationを使って自動的に求めることができる。</p>
@@ -909,8 +937,8 @@ grid searchやcross validationを使って自動的に求めることができ�
 </div>
 <p>この例では最後の一つ以外で学習をし、検証を最後の一つで行っている。</p>
 </div>
-<div class="section" id="id22">
-<h3>学習モデルの保存<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id24">
+<h4>学習モデルの保存<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>学習したモデルをpythonのpickleを使うことによって保存することが可能である。irisデータセットでそれを示す。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">svm</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
@@ -941,6 +969,7 @@ grid searchやcross validationを使って自動的に求めることができ�
 </div>
 </div>
 </div>
+</div>
 
 
           </div>
@@ -950,55 +979,59 @@ grid searchやcross validationを使って自動的に求めることができ�
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. 概要</a></li>
-<li><a class="reference internal" href="#python">5. Python関連</a><ul>
-<li><a class="reference internal" href="#help">5.1. Helpするには</a></li>
+<li><a class="reference internal" href="#">4. Python</a><ul>
+<li><a class="reference internal" href="#id1">4.1. 概要</a></li>
+<li><a class="reference internal" href="#id2">4.2. Python関連</a><ul>
+<li><a class="reference internal" href="#help">Helpするには</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#anaconda">6. Anaconda</a><ul>
-<li><a class="reference internal" href="#command-flow">6.1. Command Flow</a></li>
-<li><a class="reference internal" href="#opencv-insatall">6.2. OpenCV Insatall</a></li>
+<li><a class="reference internal" href="#anaconda">4.3. Anaconda</a><ul>
+<li><a class="reference internal" href="#command-flow">Command Flow</a></li>
+<li><a class="reference internal" href="#opencv-insatall">OpenCV Insatall</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sphinx">7. Sphinx</a><ul>
-<li><a class="reference internal" href="#id2">7.1. 数式コマンド</a><ul>
-<li><a class="reference internal" href="#id3">ベクトル(太字)</a></li>
-<li><a class="reference internal" href="#id4">大きい括弧</a></li>
+<li><a class="reference internal" href="#sphinx">4.4. Sphinx</a><ul>
+<li><a class="reference internal" href="#id3">数式コマンド</a><ul>
+<li><a class="reference internal" href="#id4">ベクトル(太字)</a></li>
+<li><a class="reference internal" href="#id5">大きい括弧</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dlib-selective-search">8. dlib Selective Search</a></li>
-<li><a class="reference internal" href="#mecab-word2vec">9. MeCab &amp; word2vec</a><ul>
-<li><a class="reference internal" href="#id5">9.1. 分かち</a></li>
-<li><a class="reference internal" href="#word2vec">9.2. word2vec</a></li>
+<li><a class="reference internal" href="#dlib-selective-search">4.5. dlib Selective Search</a></li>
+<li><a class="reference internal" href="#mecab-word2vec">4.6. MeCab &amp; word2vec</a><ul>
+<li><a class="reference internal" href="#id6">分かち</a></li>
+<li><a class="reference internal" href="#word2vec">word2vec</a></li>
+<li><a class="reference internal" href="#wikipedia">Wikipediaのデータから学習</a><ul>
+<li><a class="reference internal" href="#id7">日本語wikipediaのデータ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#numpy">10. Numpy</a><ul>
-<li><a class="reference internal" href="#id6">10.1. 配列の生成</a></li>
-<li><a class="reference internal" href="#id7">10.2. 配列の生成</a></li>
-<li><a class="reference internal" href="#id8">10.3. 配列の加工</a></li>
-<li><a class="reference internal" href="#id9">10.4. 配列に対する演算</a></li>
-<li><a class="reference internal" href="#id10">10.5. 配列の保存と読み出し</a></li>
+<li><a class="reference internal" href="#id8">配列の生成</a></li>
+<li><a class="reference internal" href="#id9">配列の生成</a></li>
+<li><a class="reference internal" href="#id10">配列の加工</a></li>
+<li><a class="reference internal" href="#id11">配列に対する演算</a></li>
+<li><a class="reference internal" href="#id12">配列の保存と読み出し</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id11">11. リスト</a></li>
-<li><a class="reference internal" href="#scikit-learn">12. SciKit-Learn</a><ul>
-<li><a class="reference internal" href="#iris">12.1. Irisデータセット分類</a><ul>
-<li><a class="reference internal" href="#id12">可視化</a></li>
+<li><a class="reference internal" href="#id13">4.7. リスト</a></li>
+<li><a class="reference internal" href="#scikit-learn">4.8. SciKit-Learn</a><ul>
+<li><a class="reference internal" href="#iris">Irisデータセット分類</a><ul>
+<li><a class="reference internal" href="#id14">可視化</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id13">12.2. 次元圧縮</a></li>
-<li><a class="reference internal" href="#d">12.3. 3Dモデルの可視化</a><ul>
-<li><a class="reference internal" href="#id14">必要なライブラリ</a></li>
-<li><a class="reference internal" href="#id15">サンプルデータからの訓練データ生成</a></li>
-<li><a class="reference internal" href="#id16">訓練データと試験データの分割</a></li>
-<li><a class="reference internal" href="#id17">分類器の訓練</a></li>
-<li><a class="reference internal" href="#id18">値の予測</a></li>
-<li><a class="reference internal" href="#id19">評価</a></li>
-<li><a class="reference internal" href="#id20">可視化</a></li>
-<li><a class="reference internal" href="#id21">学習と予測</a></li>
-<li><a class="reference internal" href="#id22">学習モデルの保存</a></li>
+<li><a class="reference internal" href="#id15">次元圧縮</a></li>
+<li><a class="reference internal" href="#d">3Dモデルの可視化</a><ul>
+<li><a class="reference internal" href="#id16">必要なライブラリ</a></li>
+<li><a class="reference internal" href="#id17">サンプルデータからの訓練データ生成</a></li>
+<li><a class="reference internal" href="#id18">訓練データと試験データの分割</a></li>
+<li><a class="reference internal" href="#id19">分類器の訓練</a></li>
+<li><a class="reference internal" href="#id20">値の予測</a></li>
+<li><a class="reference internal" href="#id21">評価</a></li>
+<li><a class="reference internal" href="#id22">可視化</a></li>
+<li><a class="reference internal" href="#id23">学習と予測</a></li>
+<li><a class="reference internal" href="#id24">学習モデルの保存</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1009,14 +1042,14 @@ grid searchやcross validationを使って自動的に求めることができ�
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="learned_algorithm.html" title="前の章へ">3. アルゴリズム</a></li>
-      <li>Next: <a href="learned_programing_cpp.html" title="次の章へ">13. C++</a></li>
+      <li>Next: <a href="learned_programing_cpp.html" title="次の章へ">5. C++</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/learned_programing_python.txt"
+      <li><a href="_sources/learned_programing_python.rst.txt"
             rel="nofollow">ソースコードを表示</a></li>
     </ul>
    </div>
@@ -1038,11 +1071,11 @@ grid searchやcross validationを使って自動的に求めることができ�
       &copy;2016, Masato.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/learned_programing_python.txt"
+      <a href="_sources/learned_programing_python.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

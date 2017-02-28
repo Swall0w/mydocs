@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>15. Arch Linux &#8212; MyOutput 0.0.1 ドキュメント</title>
+    <title>7. Arch Linux &#8212; MyOutput 0.0.1 ドキュメント</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,8 @@
         VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +27,8 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
-    <link rel="next" title="16. Applications on Linux" href="learned_linux_apps.html" />
-    <link rel="prev" title="14. Java Script" href="learned_programing_js.html" />
+    <link rel="next" title="8. Applications on Linux" href="learned_linux_apps.html" />
+    <link rel="prev" title="6. Java Script" href="learned_programing_js.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -45,7 +45,7 @@
           <div class="body" role="main">
             
   <div class="section" id="arch-linux">
-<h1>15. Arch Linux<a class="headerlink" href="#arch-linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>7. Arch Linux<a class="headerlink" href="#arch-linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -55,12 +55,12 @@
 </tbody>
 </table>
 <div class="section" id="id1">
-<h2>15.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>7.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Linuxのディストリビューションの一つであるArch Linuxについてインストールに必要なものから、インストール方法、
 実際に使っているアプリケーションにいたるまで、やってきたことをまとめます。</p>
 </div>
 <div class="section" id="id2">
-<h2>15.2. インストール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>7.2. インストール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
 <h3>パーティション<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>UEFIの場合は/bootは512MB以上のvfatが必要。今回の構成は/bootが512MB以上で、それ以外は全て/rootでext4とした。
@@ -345,7 +345,7 @@ Xtermの設定は.Xresourcesに書く。</p>
 </div>
 </div>
 <div class="section" id="id14">
-<h2>15.3. 起動しないときに<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>7.3. 起動しないときに<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>カーネルアップデート後に起動しなくなったときに、以下の手順でカーネルの再構築を試して見てください。
 起動しなくなったLinuxが存在するrootパーティションをマウントする。例えば、/mnt/archにマウントする。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ mkdir /mnt/arch
@@ -398,9 +398,9 @@ udevやmkinitcpioが上手くアップデートできないときに起こる。
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">15. Arch Linux</a><ul>
-<li><a class="reference internal" href="#id1">15.1. 概要</a></li>
-<li><a class="reference internal" href="#id2">15.2. インストール</a><ul>
+<li><a class="reference internal" href="#">7. Arch Linux</a><ul>
+<li><a class="reference internal" href="#id1">7.1. 概要</a></li>
+<li><a class="reference internal" href="#id2">7.2. インストール</a><ul>
 <li><a class="reference internal" href="#id3">パーティション</a></li>
 <li><a class="reference internal" href="#id4">ファイルシステムの構築</a></li>
 <li><a class="reference internal" href="#id5">ベースシステムのインストール</a></li>
@@ -420,7 +420,7 @@ udevやmkinitcpioが上手くアップデートできないときに起こる。
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id14">15.3. 起動しないときに</a></li>
+<li><a class="reference internal" href="#id14">7.3. 起動しないときに</a></li>
 </ul>
 </li>
 </ul>
@@ -428,15 +428,15 @@ udevやmkinitcpioが上手くアップデートできないときに起こる。
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="learned_programing_js.html" title="前の章へ">14. Java Script</a></li>
-      <li>Next: <a href="learned_linux_apps.html" title="次の章へ">16. Applications on Linux</a></li>
+      <li>Previous: <a href="learned_programing_js.html" title="前の章へ">6. Java Script</a></li>
+      <li>Next: <a href="learned_linux_apps.html" title="次の章へ">8. Applications on Linux</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/learned_linux_archlinux.txt"
+      <li><a href="_sources/learned_linux_archlinux.rst.txt"
             rel="nofollow">ソースコードを表示</a></li>
     </ul>
    </div>
@@ -458,11 +458,11 @@ udevやmkinitcpioが上手くアップデートできないときに起こる。
       &copy;2016, Masato.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/learned_linux_archlinux.txt"
+      <a href="_sources/learned_linux_archlinux.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

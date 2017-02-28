@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>17. Linux システム関連 &#8212; MyOutput 0.0.1 ドキュメント</title>
+    <title>9. Linux システム関連 &#8212; MyOutput 0.0.1 ドキュメント</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,7 +17,8 @@
         VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,9 +27,8 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="index.html" />
-    <link rel="next" title="18. ロボット関連" href="learned_robot.html" />
-    <link rel="prev" title="16. Applications on Linux" href="learned_linux_apps.html" />
+    <link rel="next" title="10. ロボット関連" href="learned_robot.html" />
+    <link rel="prev" title="8. Applications on Linux" href="learned_linux_apps.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -45,7 +45,7 @@
           <div class="body" role="main">
             
   <div class="section" id="linux">
-<h1>17. Linux システム関連<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>9. Linux システム関連<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -55,14 +55,14 @@
 </tbody>
 </table>
 <div class="section" id="id1">
-<h2>17.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>データベースの構築から、インストール、ipの固定までのhow to をまとめていきます。</p>
 </div>
 <div class="section" id="id2">
-<h2>17.2. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.2. データベース<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 <div class="section" id="id3">
-<h2>17.3. Linux 状態確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.3. Linux 状態確認<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="top">
 <h3>Top コマンド<a class="headerlink" href="#top" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>topコマンドで得られる情報は大きく分けて二つある。</p>
@@ -179,7 +179,7 @@ $ top -d1       # 1秒ごとに更新
 </div>
 </div>
 <div class="section" id="id6">
-<h2>17.4. Linux バージョン確認<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.4. Linux バージョン確認<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="cent-os">
 <h3>Cent OS<a class="headerlink" href="#cent-os" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Cent OSのバージョン確認:</p>
@@ -200,7 +200,7 @@ $ uname -a
 </div>
 </div>
 <div class="section" id="ftp">
-<h2>17.5. FTPコマンドでファイル転送<a class="headerlink" href="#ftp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.5. FTPコマンドでファイル転送<a class="headerlink" href="#ftp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>FTPコマンドは、ホスト名とポート番号を指定して起動します。すると、ユーザ名とパスワードを聞いてくるので入力します。ユーザ認証がOKな場合は各種FTPコマンドが使えます。</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -265,7 +265,7 @@ $ uname -a
 </table>
 </div>
 <div class="section" id="ubuntupukiwiki">
-<h2>17.6. Ubuntuにpukiwikiインストール<a class="headerlink" href="#ubuntupukiwiki" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.6. Ubuntuにpukiwikiインストール<a class="headerlink" href="#ubuntupukiwiki" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="apach2-4-php">
 <h3>Apach2.4 &amp; PHP インストール<a class="headerlink" href="#apach2-4-php" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>普通にapt-getする。:</p>
@@ -298,7 +298,7 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 </div>
 </div>
 <div class="section" id="id8">
-<h2>17.7. Linux ファイルシステム<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.7. Linux ファイルシステム<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="proc">
 <h3>/proc<a class="headerlink" href="#proc" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>プロセスやメモリなどのLinuxシステム上のリソース関連情報をあたかもファイルであるかのように配置した
@@ -461,7 +461,7 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 </div>
 </div>
 <div class="section" id="id11">
-<h2>17.8. サーバー管理<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.8. サーバー管理<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id12">
 <h3>ログイン回避<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>アカウントがない状態で、ログインしなければならない場合の対処法について記す。コンソールアクセスが可能で再起動してもいいのであれば、
@@ -489,16 +489,16 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 </div>
 </div>
 <div class="section" id="amazon-linux">
-<h2>17.9. Amazon Linux<a class="headerlink" href="#amazon-linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.9. Amazon Linux<a class="headerlink" href="#amazon-linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>cuda構築するときの参考 <a class="reference external" href="http://qiita.com/pyr_revs/items/e1545e6f464b712517ed">http://qiita.com/pyr_revs/items/e1545e6f464b712517ed</a></p>
 <div class="section" id="caffe">
 <h3>Caffeの構築<a class="headerlink" href="#caffe" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="yum">
-<h4>yumで入れられるもの<a class="headerlink" href="#yum" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>できる限りyumで入れる。</p>
+<p><a class="reference external" href="https://gist.github.com/rezoo/a1c8d1459b222fc5658f">https://gist.github.com/rezoo/a1c8d1459b222fc5658f</a>
+yumで入れられるもの
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+できる限りyumで入れる。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ sudo yum install protobuf-devel snappy-devel
 </pre></div>
-</div>
 </div>
 <div class="section" id="atlas">
 <h4>Atlasインストール<a class="headerlink" href="#atlas" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -524,7 +524,25 @@ $ sudo mv pukiwiki-1_5_0_utf8 wiki
 <div class="section" id="anaconda">
 <h4>Anacondaインストール<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>AnacondaはPythonにデータ解析等で使用するライブラリがContinuum Analytics社があらかた準備されているものです。後から自分で入れるものが減るので、使えるならこちらを使う。
-<a class="reference external" href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a></p>
+<a class="reference external" href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a>
+インストール後に$HOME/.bashrcの末尾に</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>xport PATH=$HOME/anaconda/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/anaconda/lib:$LD_LIBRARY_PATH
+</pre></div>
+</div>
+<p>を記述する。anacondaが勝手にやるが、もし出来てなかったら自分でやる。
+opencvもcondaで入れることが出きるので、こちらからもやる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ conda update opencv
+</pre></div>
+</div>
+<p>また、condaからpipをインストールすることで、pip経由でインストールできる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ conda install pip
+</pre></div>
+</div>
+<p>Protocol Bufferをインストールする。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip install protobuf
+</pre></div>
+</div>
 </div>
 <div class="section" id="opencv">
 <h4>OpenCVインストール<a class="headerlink" href="#opencv" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -571,8 +589,16 @@ $ sudo make install
 $ make check
 $ cd ..
 $ sudo mv leveldb-1.15.0 /opt/leveldb
+$ sudo cp -r leveldb/include/leveldb /usr/local/include
 </pre></div>
 </div>
+<p>これでダメだったので、その時の対処について述べる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>-fPICオプション付きでコンパイルするように言われたので、
+MakefileのCFLAGSをいじる。
+CFLAGS = -c -I ...... $(OPT) -fPIC
+</pre></div>
+</div>
+<p>これで再度makeする。また、ライブラリについても共有する必要があるので、makeした後にできる</p>
 </div>
 <div class="section" id="hdf5">
 <h4>hdf5インストール<a class="headerlink" href="#hdf5" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -617,6 +643,17 @@ export LD_LIBRARY_PATH=/opt/leveldb:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 </pre></div>
 </div>
+<p>make runtestをして、エラーがでなければ、正常にビルドが完了している。次にpython用のcaffeパッケージをビルドする。
+そのために、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ make pycaffe
+</pre></div>
+</div>
+<p>をし、PYTHONPATH環境変数にcaffeのpythonディレクトリを塚することも必要。
+pythonを起動し、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">caffe</span>
+</pre></div>
+</div>
+<p>でエラーがでなければ大丈夫。Protocol buffer関係のエラー出た場合は多分protobufパッケージをインストールしていないだけなのでインストールする。</p>
 </div>
 </div>
 </div>
@@ -630,10 +667,10 @@ export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">17. Linux システム関連</a><ul>
-<li><a class="reference internal" href="#id1">17.1. 概要</a></li>
-<li><a class="reference internal" href="#id2">17.2. データベース</a></li>
-<li><a class="reference internal" href="#id3">17.3. Linux 状態確認</a><ul>
+<li><a class="reference internal" href="#">9. Linux システム関連</a><ul>
+<li><a class="reference internal" href="#id1">9.1. 概要</a></li>
+<li><a class="reference internal" href="#id2">9.2. データベース</a></li>
+<li><a class="reference internal" href="#id3">9.3. Linux 状態確認</a><ul>
 <li><a class="reference internal" href="#top">Top コマンド</a><ul>
 <li><a class="reference internal" href="#id4">使い方と操作方法</a></li>
 <li><a class="reference internal" href="#id5">ヘッダーの見方</a></li>
@@ -641,18 +678,18 @@ export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">17.4. Linux バージョン確認</a><ul>
+<li><a class="reference internal" href="#id6">9.4. Linux バージョン確認</a><ul>
 <li><a class="reference internal" href="#cent-os">Cent OS</a></li>
 <li><a class="reference internal" href="#id7">アーキテクチャを確認する。</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#ftp">17.5. FTPコマンドでファイル転送</a></li>
-<li><a class="reference internal" href="#ubuntupukiwiki">17.6. Ubuntuにpukiwikiインストール</a><ul>
+<li><a class="reference internal" href="#ftp">9.5. FTPコマンドでファイル転送</a></li>
+<li><a class="reference internal" href="#ubuntupukiwiki">9.6. Ubuntuにpukiwikiインストール</a><ul>
 <li><a class="reference internal" href="#apach2-4-php">Apach2.4 &amp; PHP インストール</a></li>
 <li><a class="reference internal" href="#pukiwiki1-5-0">PukiWiki1.5.0を設置</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8">17.7. Linux ファイルシステム</a><ul>
+<li><a class="reference internal" href="#id8">9.7. Linux ファイルシステム</a><ul>
 <li><a class="reference internal" href="#proc">/proc</a><ul>
 <li><a class="reference internal" href="#id9">/procの分類</a></li>
 <li><a class="reference internal" href="#id10">Linuxのカーネル内部情報</a></li>
@@ -661,13 +698,12 @@ export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id11">17.8. サーバー管理</a><ul>
+<li><a class="reference internal" href="#id11">9.8. サーバー管理</a><ul>
 <li><a class="reference internal" href="#id12">ログイン回避</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#amazon-linux">17.9. Amazon Linux</a><ul>
+<li><a class="reference internal" href="#amazon-linux">9.9. Amazon Linux</a><ul>
 <li><a class="reference internal" href="#caffe">Caffeの構築</a><ul>
-<li><a class="reference internal" href="#yum">yumで入れられるもの</a></li>
 <li><a class="reference internal" href="#atlas">Atlasインストール</a></li>
 <li><a class="reference internal" href="#boost">Boostインストール</a></li>
 <li><a class="reference internal" href="#anaconda">Anacondaインストール</a></li>
@@ -689,15 +725,15 @@ export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="learned_linux_apps.html" title="前の章へ">16. Applications on Linux</a></li>
-      <li>Next: <a href="learned_robot.html" title="次の章へ">18. ロボット関連</a></li>
+      <li>Previous: <a href="learned_linux_apps.html" title="前の章へ">8. Applications on Linux</a></li>
+      <li>Next: <a href="learned_robot.html" title="次の章へ">10. ロボット関連</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/learned_linux_server.txt"
+      <li><a href="_sources/learned_linux_server.rst.txt"
             rel="nofollow">ソースコードを表示</a></li>
     </ul>
    </div>
@@ -719,11 +755,11 @@ export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
       &copy;2016, Masato.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/learned_linux_server.txt"
+      <a href="_sources/learned_linux_server.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

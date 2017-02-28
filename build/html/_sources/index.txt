@@ -40,7 +40,3 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-Change in Sphix
-========================
-
-.. include:: ../CHANGES

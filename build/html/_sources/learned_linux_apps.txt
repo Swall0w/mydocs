@@ -529,6 +529,9 @@ ld.so.confの設定を反映する。 ::
 
 http://qiita.com/saicologic/items/ab70e14f7e2ec2ee0b4d
 
+標準の辞書ではなくて、随時更新される辞書を使う方がいい。ただし、インストールにメモリ2GB以上必要。
+https://github.com/neologd/mecab-ipadic-neologd/blob/master/README.ja.md
+
 nkf
 ====================================
 日本語の処理を行うコマンドのインストールについて示す。 ::

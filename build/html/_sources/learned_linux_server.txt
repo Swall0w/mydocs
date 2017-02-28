@@ -277,6 +277,7 @@ cuda構築するときの参考 http://qiita.com/pyr_revs/items/e1545e6f464b7125
 
 Caffeの構築
 ------------------------------------
+https://gist.github.com/rezoo/a1c8d1459b222fc5658f
 yumで入れられるもの
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 できる限りyumで入れる。 ::
@@ -307,6 +308,23 @@ Anacondaインストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AnacondaはPythonにデータ解析等で使用するライブラリがContinuum Analytics社があらかた準備されているものです。後から自分で入れるものが減るので、使えるならこちらを使う。
 https://www.continuum.io/downloads 
+インストール後に$HOME/.bashrcの末尾に ::
+
+    xport PATH=$HOME/anaconda/bin:$PATH
+    export LD_LIBRARY_PATH=$HOME/anaconda/lib:$LD_LIBRARY_PATH
+
+を記述する。anacondaが勝手にやるが、もし出来てなかったら自分でやる。
+opencvもcondaで入れることが出きるので、こちらからもやる。 ::
+
+    $ conda update opencv
+
+また、condaからpipをインストールすることで、pip経由でインストールできる。 ::
+
+    $ conda install pip
+
+Protocol Bufferをインストールする。 ::
+
+    $ pip install protobuf
 
 OpenCVインストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -393,6 +411,18 @@ runtestをするために、環境変数の設定が必要である。(.bashrc�
     export LD_LIBRARY_PATH=/usr/local/lib/:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/opt/leveldb:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/usr/local/hdf5/lib:$LD_LIBRARY_PATH
+
+make runtestをして、エラーがでなければ、正常にビルドが完了している。次にpython用のcaffeパッケージをビルドする。
+そのために、 ::
+
+    $ make pycaffe
+
+をし、PYTHONPATH環境変数にcaffeのpythonディレクトリを塚することも必要。
+pythonを起動し、 ::
+
+    >>> import caffe
+
+でエラーがでなければ大丈夫。Protocol buffer関係のエラー出た場合は多分protobufパッケージをインストールしていないだけなのでインストールする。
 
 
 

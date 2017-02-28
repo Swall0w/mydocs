@@ -1,4 +1,4 @@
-===================================
+====================================
 Python
 ====================================
 
@@ -220,9 +220,25 @@ word2vecの結果を確認する。とりあえず指定した単語とコサイ
 
 http://m0t0k1ch1st0ry.com/blog/2016/08/28/word2vec/
 
-Numpy
-====================================
+Wikipediaのデータから学習
+------------------------------------
 
+日本語wikipediaのデータ
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2GB以上あるが以下でダウンロードする。 ::
+
+    curl https://dumps.wikimedia.org/jawiki/latest/jawiki-latest-pages-articles.xml.bz2 -o jawiki-latest-pages-articles.xml.bz2
+
+データファイルはXMLで記述されているので、それを普通のテキストファイルに変換する必要がある。
+今回はこれを使用した。記述があるようにインストールする。 https://github.com/attardi/wikiextractor ::
+
+    $ mkdir extracted
+    $ WikiExtractor.py jawiki-latest-pages-articles.xml -o extracted/
+
+
+Numpyの使い方
+====================================
+pythonで高速な計算を行うためには、リストではなく、Numpyを用いる。
 PythonでNumpyを利用するには、インポートする。 ::
 
     >>> import numpy as np

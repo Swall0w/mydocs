@@ -17,7 +17,8 @@
         VERSION:     '0.0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -26,7 +27,6 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="top" title="MyOutput 0.0.1 ドキュメント" href="#" />
     <link rel="next" title="1. 機械学習のまとめ" href="learned_machine_learning.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -51,30 +51,22 @@
 <li class="toctree-l1"><a class="reference internal" href="learned_machine_learning.html">1. 機械学習のまとめ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learned_math.html">2. 数学</a></li>
 <li class="toctree-l1"><a class="reference internal" href="learned_algorithm.html">3. アルゴリズム</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html">4. 概要</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#python">5. Python関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#anaconda">6. Anaconda</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#sphinx">7. Sphinx</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#dlib-selective-search">8. dlib Selective Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#mecab-word2vec">9. MeCab &amp; word2vec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#numpy">10. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#id11">11. リスト</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html#scikit-learn">12. SciKit-Learn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_cpp.html">13. C++</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_programing_js.html">14. Java Script</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_linux_archlinux.html">15. Arch Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_linux_apps.html">16. Applications on Linux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_linux_server.html">17. Linux システム関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_robot.html">18. ロボット関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_electric.html">19. 電気関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="learned_network.html">20. ネットワーク関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="works.html">21. 製作物関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tips.html">22. 考え方</a></li>
-<li class="toctree-l1"><a class="reference internal" href="books.html">23. 本</a></li>
-<li class="toctree-l1"><a class="reference internal" href="events.html">24. イベント・勉強会関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hobby_arts.html">25. 美術関連</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hobby_lang.html">26. 言語</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matome_ss.html">27. SSまとめ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_programing_python.html">4. Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_programing_cpp.html">5. C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_programing_js.html">6. Java Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_linux_archlinux.html">7. Arch Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_linux_apps.html">8. Applications on Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_linux_server.html">9. Linux システム関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_robot.html">10. ロボット関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_electric.html">11. 電気関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="learned_network.html">12. ネットワーク関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="works.html">13. 製作物関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tips.html">14. 考え方</a></li>
+<li class="toctree-l1"><a class="reference internal" href="books.html">15. 本</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">16. イベント・勉強会関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hobby_arts.html">17. 美術関連</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hobby_lang.html">18. 言語</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matome_ss.html">19. SSまとめ</a></li>
 </ul>
 </div>
 </div>
@@ -85,9 +77,6 @@
 <li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">モジュール索引</span></a></li>
 <li><a class="reference internal" href="search.html"><span class="std std-ref">検索ページ</span></a></li>
 </ul>
-</div>
-<div class="section" id="change-in-sphix">
-<h1>Change in Sphix<a class="headerlink" href="#change-in-sphix" title="このヘッドラインへのパーマリンク">¶</a></h1>
 </div>
 
 
@@ -100,7 +89,6 @@
   <ul>
 <li><a class="reference internal" href="#">Welcome to MyOutput&#8217;s documentation!</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-<li><a class="reference internal" href="#change-in-sphix">Change in Sphix</a></li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
@@ -113,7 +101,7 @@
   <div role="note" aria-label="source link">
     <h3>このページ</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/index.rst.txt"
             rel="nofollow">ソースコードを表示</a></li>
     </ul>
    </div>
@@ -135,11 +123,11 @@
       &copy;2016, Masato.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="_sources/index.txt"
+      <a href="_sources/index.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
