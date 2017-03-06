@@ -263,6 +263,46 @@
 <p>移動コマンド</p>
 <table border="1" class="docutils">
 <colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">移動</th>
+<th class="head">コマンド</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>次行の一文字目に</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>前行の一文字目に</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>単語の末尾に</td>
+<td>e E</td>
+</tr>
+<tr class="row-odd"><td>単語単位で順方向に</td>
+<td>w W</td>
+</tr>
+<tr class="row-even"><td>単語単位で逆方向に</td>
+<td>b B</td>
+</tr>
+<tr class="row-odd"><td>行末まで</td>
+<td>$</td>
+</tr>
+<tr class="row-even"><td>行頭まで</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
 <col width="74%" />
 <col width="26%" />
 </colgroup>
@@ -704,11 +744,65 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 </div>
 <p>確認をしながらやる場合は、置換したいときはyとエンターが必要である。変更したくなければ、エンターのみ押せば変更されず、次の候補にいく。</p>
 </div>
-</div>
 <div class="section" id="id16">
-<h3>画面分割<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h4>文脈依存置換<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>一番簡単な一括置換は、1語を別の語に置き換える作業である。例えば、</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">editer</span><span class="o">/</span><span class="n">editor</span><span class="o">/</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>これでファイル内のすべてのediterがeditorに置換される。文脈依存置換はパターンにより複雑な置換を行うことが出来る。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">g</span><span class="o">/</span><span class="n">pattern</span><span class="o">/</span><span class="n">s</span><span class="o">/</span><span class="n">old</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>先頭のgは、ファイルのすべての行をコマンドの対象にするという意味である。patternは置換を実行したい行を示す。
+exは、patternを含んだ行に出現するoldをnewに指定した文字列に置換する。(s)
+例えば、SGMLの擬似命令&lt;keycap&gt;を含む行に出現するEscだけをESCに変えるには、次のコマンドを実行すればいい。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">g</span><span class="o">/&lt;</span><span class="n">keycap</span><span class="o">&gt;/</span><span class="n">s</span><span class="o">/</span><span class="n">Esc</span><span class="o">/</span><span class="n">ESC</span><span class="o">/</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>　なお、行を見つけるのに使用するパターンと変更するパターンが同じ場合には、2度指定する必要はない。次のコマンドは</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">g</span><span class="o">/</span><span class="n">string</span><span class="o">/</span><span class="n">s</span><span class="o">//</span><span class="n">new</span><span class="o">/</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>stringを含んだ行を見つけて、そのstringをnewに変えるという意味になる。従って、次のコマンドは結果が同じになる。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">g</span><span class="o">/</span><span class="n">editer</span><span class="o">//</span><span class="n">editor</span><span class="o">/</span><span class="n">g</span>
+<span class="p">:</span><span class="o">%</span><span class="n">s</span><span class="o">/</span><span class="n">editer</span><span class="o">/</span><span class="n">editor</span><span class="o">/</span><span class="n">g</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="id17">
-<h4>ウィンドウ分割<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>パターンマッチング<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>vimでは正規表現による処理も可能である。正規表現は、exコマンドの:gや:sだけでなく、vimコマンドの/と?にも使うことが出来る。</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">pattern</th>
+<th class="head">意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>.</td>
+<td>改行を除く任意の1文字にマッチする。空白も文字として扱われる点に注意。
+例えば、p.pなら、pep, pip, pcpなどの文字列にマッチ</td>
+</tr>
+<tr class="row-odd"><td>*</td>
+<td>これの直前にある1文字の0個以上の並びにマッチ。
+例えばbugs*は、bugs(sが1個), bug(sが0個)にマッチする。
+<em>の前の文字は正規表現で指定された文字でも良い。例えば、.は任意の文字にを表すので、
+.*は「任意の文字の0個以上の並びにマッチする。」
+具体例を上げると、:s/End.</em>/End/はEndのあとにあるすべての文字を乗り除くコマンドになる。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>画面分割<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id19">
+<h4>ウィンドウ分割<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -729,8 +823,8 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 </tbody>
 </table>
 </div>
-<div class="section" id="id18">
-<h4>ウィンドウ移動<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id20">
+<h4>ウィンドウ移動<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -760,8 +854,8 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 </tbody>
 </table>
 </div>
-<div class="section" id="id19">
-<h4>ウィンドウそのものを移動<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id21">
+<h4>ウィンドウそのものを移動<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="25%" />
@@ -791,8 +885,8 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 </tbody>
 </table>
 </div>
-<div class="section" id="id20">
-<h4>カレントウィンドウの大きさを変更<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id22">
+<h4>カレントウィンドウの大きさを変更<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="36%" />
@@ -828,8 +922,8 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 </tbody>
 </table>
 </div>
-<div class="section" id="id21">
-<h4>タブ関連<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id23">
+<h4>タブ関連<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="34%" />
@@ -853,8 +947,8 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 </tbody>
 </table>
 </div>
-<div class="section" id="id22">
-<h4>閉じる<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id24">
+<h4>閉じる<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <colgroup>
 <col width="40%" />
@@ -882,8 +976,8 @@ pのあとに、uと繰り返しコマンド.をタイプすれば、バッフ�
 <blockquote>
 <div>:%s/&gt;&lt;/&gt;r&lt;/g | filetype indent on | setf xml | normal gg=G</div></blockquote>
 </div>
-<div class="section" id="id23">
-<h3>その他<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id25">
+<h3>その他<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Unixコマンドを実行したくなった場合は、</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>:!command
 </pre></div>
@@ -930,8 +1024,8 @@ Yuko    50
 </div>
 <div class="section" id="mecab">
 <h2>8.5. MeCab<a class="headerlink" href="#mecab" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id24">
-<h3>インストール<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id26">
+<h3>インストール<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>インストール方法を以下に示す。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">taku910</span><span class="o">/</span><span class="n">mecab</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">mecab</span><span class="o">/</span><span class="n">mecab</span>
@@ -1021,8 +1115,8 @@ UTF-8(CR)
 誰が最新版を持っているのかやどこを変更したのかなどの履歴が分からなくなってします。ここでのバージョン管理システムを導入すると、変更点と変更者、変更日時を管理出きるようになる。</p>
 <p>VCSは個別バージョン管理システム、クライアント・サーバ型の集中型バージョン管理システム、分散型バージョン管理システムの3種類あり、Gitは分散型である。</p>
 </div>
-<div class="section" id="id25">
-<h3>事前知識<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id27">
+<h3>事前知識<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>リポジトリとは、ファイルやディレクトリの状態を保存する場所である。
 更履歴を管理したいディレクトリなどをリポジトリの管理下に置くことで、そのディレクトリ内のファイルなどの変更履歴を記録することができる。</p>
 <ul class="simple">
@@ -1062,8 +1156,8 @@ $ git config --global user.mail {mail address}
 </pre></div>
 </div>
 </div>
-<div class="section" id="id26">
-<h3>GitHubでレポジトリを作成する。<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id28">
+<h3>GitHubでレポジトリを作成する。<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まずは、リポジトリを作成する。GitHubにログインした状態で、右下の「New Repository」ボタンを押す。
 次に表示される画面で、「Repository name」の入力後に「Description」も入力する。</p>
 <p>また、リポジトリの種類をPublicかPrivateを選択する。最後にリポジトリの中にあらかじめREADMEファイルを作成しておく場合は、
@@ -1071,8 +1165,8 @@ $ git config --global user.mail {mail address}
 <p>必要項目の入力が終わり、「Create repository」ボタンをクリックするとリポジトリの作成は完了する。
 次の画面でリモートリポジトリのアドレスが表示されるため、控えておく。</p>
 </div>
-<div class="section" id="id27">
-<h3>ローカルリポジトリ<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id29">
+<h3>ローカルリポジトリ<a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ローカルディレクトリを作成し、そこを初期化する。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>mkdir hoge
 cd $_
@@ -1082,8 +1176,8 @@ git init
 <p>「git init」コマンドはgitリポジトリを新たに作成するコマンドである。バージョン管理を行っていない既存のプロジェクトをgitリポジトリに変換する場合や、
 空の新規リポジトリを作成して初期化する場合に使用する。このコマンドの実行によりカレントディレクトリをgitリポジトリに変換する。</p>
 </div>
-<div class="section" id="id28">
-<h3>GitHubのリモート先を指定<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id30">
+<h3>GitHubのリモート先を指定<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>foo を github のユーザ名、bar をプロジェクト名で、それぞれ置き換える。:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ git remote add origin git@github.com:foo/bar.git
 </pre></div>
@@ -1122,8 +1216,8 @@ git init
 </div>
 <p>GitHubのユーザ名とパスワードを尋ねられるため、入力する。これが終わると、リモートレポジトリへ反映出来る。</p>
 </div>
-<div class="section" id="id29">
-<h3>GitHub新規リポジトリの場合<a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id31">
+<h3>GitHub新規リポジトリの場合<a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>以下転載:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;# mydocs&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
 <span class="n">git</span> <span class="n">init</span>
@@ -1163,19 +1257,21 @@ git init
 <li><a class="reference internal" href="#id10">位置のマーク</a></li>
 <li><a class="reference internal" href="#ex">exコマンド</a></li>
 <li><a class="reference internal" href="#id15">一括置換</a></li>
+<li><a class="reference internal" href="#id16">文脈依存置換</a></li>
+<li><a class="reference internal" href="#id17">パターンマッチング</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id16">画面分割</a><ul>
-<li><a class="reference internal" href="#id17">ウィンドウ分割</a></li>
-<li><a class="reference internal" href="#id18">ウィンドウ移動</a></li>
-<li><a class="reference internal" href="#id19">ウィンドウそのものを移動</a></li>
-<li><a class="reference internal" href="#id20">カレントウィンドウの大きさを変更</a></li>
-<li><a class="reference internal" href="#id21">タブ関連</a></li>
-<li><a class="reference internal" href="#id22">閉じる</a></li>
+<li><a class="reference internal" href="#id18">画面分割</a><ul>
+<li><a class="reference internal" href="#id19">ウィンドウ分割</a></li>
+<li><a class="reference internal" href="#id20">ウィンドウ移動</a></li>
+<li><a class="reference internal" href="#id21">ウィンドウそのものを移動</a></li>
+<li><a class="reference internal" href="#id22">カレントウィンドウの大きさを変更</a></li>
+<li><a class="reference internal" href="#id23">タブ関連</a></li>
+<li><a class="reference internal" href="#id24">閉じる</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#xml">Xmlファイルの整形</a></li>
-<li><a class="reference internal" href="#id23">その他</a></li>
+<li><a class="reference internal" href="#id25">その他</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#zip">8.4. zip</a><ul>
@@ -1183,21 +1279,21 @@ git init
 </ul>
 </li>
 <li><a class="reference internal" href="#mecab">8.5. MeCab</a><ul>
-<li><a class="reference internal" href="#id24">インストール</a></li>
+<li><a class="reference internal" href="#id26">インストール</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#nkf">8.6. nkf</a></li>
 <li><a class="reference internal" href="#github">8.7. github</a><ul>
 <li><a class="reference internal" href="#git">Gitとは</a></li>
-<li><a class="reference internal" href="#id25">事前知識</a></li>
+<li><a class="reference internal" href="#id27">事前知識</a></li>
 <li><a class="reference internal" href="#githubssh">githubとssh接続</a></li>
-<li><a class="reference internal" href="#id26">GitHubでレポジトリを作成する。</a></li>
-<li><a class="reference internal" href="#id27">ローカルリポジトリ</a></li>
-<li><a class="reference internal" href="#id28">GitHubのリモート先を指定</a></li>
+<li><a class="reference internal" href="#id28">GitHubでレポジトリを作成する。</a></li>
+<li><a class="reference internal" href="#id29">ローカルリポジトリ</a></li>
+<li><a class="reference internal" href="#id30">GitHubのリモート先を指定</a></li>
 <li><a class="reference internal" href="#git-git-add">ファイルの作成・変更・削除をgitのインデックスに追加する(git add)</a></li>
 <li><a class="reference internal" href="#git-commit">変更結果をローカルリポジトリにコミットする(git commit)</a></li>
 <li><a class="reference internal" href="#git-push">ローカルリポジトリをプッシュしてリモートレポジトリへ反映させる(git push)</a></li>
-<li><a class="reference internal" href="#id29">GitHub新規リポジトリの場合</a></li>
+<li><a class="reference internal" href="#id31">GitHub新規リポジトリの場合</a></li>
 </ul>
 </li>
 </ul>
