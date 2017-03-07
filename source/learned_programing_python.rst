@@ -925,11 +925,44 @@ pickle以外にもビックデータではjoblib.dump&joblib.loadが効率的で
 システムトレード
 ====================================
 
+準備
+------------------------------------
 ダウンロード可能なデータベースは
+
 * Yahoo Finance
 * Google Finance
 * St.Lois(fred)
 * World Bank
 * Kennith French's Data Libralies
 * Google Analytics
-である。
+
+である。データの種類としては、
+
+* 時系列データ(time-series data)
+    時間に従って、記録したデータ
+* クロスセクションデータ
+    時間を一時点に固定した各国の株価指数、経済指標などのデータ
+
+上記のデータベースからデータを持ってくる際にはpandasの機能である ::
+
+    DataReader(stock_code,"yahoo",start,end)  
+
+例えば、セントルイス連邦準備銀行のfredデータベースから1949年からの日経平均株価を手に入れるには ::
+
+    >>> import pandas_datareader.data as pdr
+    >>> start='1949/5/16'
+    >>> end='2016/9/30'
+    >>> N255 = pdr.DataReader('NIKKEI255','fred',start,end)
+    >>> N255.head(1)
+
+グラフに表示するにはmatplotlibを用いて、横軸が日付、縦軸が日経平均株価となる。 ::
+
+    >>> import matplotlib.pyplot as plt
+    >>> N255.plot(color='darkblue')
+    >>> plt.ylabel('N255 index')
+
+アメリカヤフーファイナンスから1984年1月4日からの日経平均株価が手に入り、始値、高値、安値、終値、取引高、調整後終値が含まれている。 ::
+
+    >>> price = pdr.DataReader('^N255','yahoo','1984/1/4',end)
+    >>> price.head()
+    
