@@ -921,3 +921,15 @@ pickle以外にもビックデータではjoblib.dump&joblib.loadが効率的で
     >>> joblib.dump(clf, 'filename.pkl')
     ['filename.pkl']
     >>> clf = joblib.load('filename.pkl')
+
+システムトレード
+====================================
+
+ダウンロード可能なデータベースは
+* Yahoo Finance
+* Google Finance
+* St.Lois(fred)
+* World Bank
+* Kennith French's Data Libralies
+* Google Analytics
+である。
