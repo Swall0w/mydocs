@@ -961,3 +961,23 @@ GNU Parallelとは、
 
 2. 大きなファイルの全ての行に
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1つのファイルの100万行とかに行ごとに処理
+
+-> --pipe オプションを使う ::
+
+    cat original.txt | parallel --pipe --L 10000 "hoge.py" > processed.txt
+
+    トータルとして、original.txtを1万行づつの「塊」に分解して、それぞれを並列にhoge.pyにパイプで入力する。
+    その結果をprocessed.txtにまとめる。
+
+ボトルネックの部分飲みを並列化することも出来る。
+
+--pipeの真髄：パイプラインの一部を並列化 ::
+
+    cat a.txt | hoge.py | fuga.py | piyo.py > b.txt 
+    において、hoge.py , piyo.pyは早いが、 fuga.pyが遅い時(ボトルネックの時)
+    ->
+    cat a.txt | hoge.py | parallel --pipe --L 100 fuga.py | piyo.py > b.txt 
+    でfuga.pyのみを並列化して高速化
+
+ちなみに、ボトルネックのプロファイリングはpv(pipe-viewer)コマンドを用いる。
