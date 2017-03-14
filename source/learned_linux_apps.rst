@@ -922,3 +922,29 @@ GitHub新規リポジトリの場合
     git commit -m "first commit"
     git remote add origin https://github.com/Swall0w/mydocs.git
     git push -u origin master
+
+GNU Parallel
+====================================
+GNU Parallelとは、
+
+* 並列実行関係の機能が詰まったユーティリティ
+* 便利なソフトだが、マニュアルが不親切
+
+使い方パターン例
+---------------------------------------------
+
+1. 小さなファイルが超大量、それぞれに処理
+    ex. Wikipediaのすべての記事に処理など
+
+2. 巨大なファイルに各行に処理
+    ex. ツイートログファイル(1ファイル数GB)
+
+3. パラメータとその組み合わせが大量
+    ex. 機械学習(次元数、層数、学習率など)
+
+参考(https://bitbucket.org/cl-tohoku/bakapara_tutorial)
+
+
+1. 処理すべきファイルがたくさん
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+大量のファイルに定型的な処理
