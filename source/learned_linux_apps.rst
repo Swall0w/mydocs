@@ -952,6 +952,7 @@ GNU Parallelとは、
 -> GNU Parallelのファイル名置換を使う ::
 
     ls orig/* | parallel -j 10 "mecab < {} > processed/{/}"
+
     1. ls orig/* : 処理するファイルのリストを生成
     2. parallel -j 10 : 並列数
     3. "mecab < {} : {}がファイル名に置換される。(ex. org/1.txt)
