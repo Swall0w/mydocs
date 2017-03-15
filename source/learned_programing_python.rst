@@ -1055,3 +1055,29 @@ diffとstdで日経平均株価の価格変動性を求める。 ::
 価格の対数の差は対数変化率、または対数収益率と呼ばれる。ここでは、１日のデータを7961個用いて標準偏差を計算し、その標準偏差は1日の対数変化率の標準偏差であるので、
 250の平方根をかけることで、1年の対数変化率の標準偏差に変換をする。その値は23%であり、ボラティリティと呼ぶ。
 
+データの加工-ローリング分析
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pandasのSeries.rollingを用いて、日経平均株価の終値250日移動平均を取得する。 ::
+
+    >>> import pandas as pd
+    >>> ma = pd.Serias.rolling(price.Close, window=250).mean()
+    >>> price.Close.plot(label='n255', style='--')
+    >>> ma.plot(label='250days ma')
+    >>> plt.ylabel('N255 index')
+    >>> plt.legend()
+
+移動平均の他に、指定された期間の:
+
+* Serias.rolling().max() (移動最大値)
+* Serias.rolling().min() (移動最小値)
+* Serias.rolling().median() (移動中央値)
+* Serias.rolling().std() (移動標準偏差)
+
+を利用することが出来る。
+
+また、移動標準偏差を用いて、250日分のデータを用いて、移動ボラティリティを計算し、それを可視化する。
+ボラティリティは一定ではなく、上下動を繰り返すが、時としては大きくジャンプしてしばらくそこに留まり、時間が経過
+すると、以前の状態に戻ってくることが読み取れる。この現象をボラティリティのクラスタリングと呼ぶ。::
+
+    >>> (pd.Series.rolling(np.log(price.Close).diff().dropna(),window=250).std()*np.sqrt(250)).plot()
+    >>> plt.ylabel('standard deviation 250 days N255')
