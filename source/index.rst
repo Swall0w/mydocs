@@ -24,6 +24,7 @@ Contents:
     learned_robot
     learned_electric
     learned_network
+    finance
     works
     tips
     books
