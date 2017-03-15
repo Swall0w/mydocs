@@ -88,11 +88,12 @@ PR       NI          VIRT          RES      SHR          S           %CPU     %M
 * RES   : Resident size スワップしていない、使用した物理メモリのサイズ
 * SHR   : Shared Mem size 他のプロセスと共有される可能性のあるメモリのサイズ
 * S     : Process Status 以下のいずれかの状態であるかを示している。
-- D :割り込み不能
-- R : 実行中
-- S : スリープ中
-- T :停止中
-- Z :ゾンビプロセス
+
+    - D :割り込み不能
+    - R : 実行中
+    - S : スリープ中
+    - T :停止中
+    - Z :ゾンビプロセス
 
 Linux バージョン確認
 ====================================
@@ -278,6 +279,7 @@ cuda構築するときの参考 http://qiita.com/pyr_revs/items/e1545e6f464b7125
 Caffeの構築
 ------------------------------------
 https://gist.github.com/rezoo/a1c8d1459b222fc5658f
+
 yumで入れられるもの
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 できる限りyumで入れる。 ::
@@ -378,13 +380,12 @@ leveldbのアーカイブをダウンロードし、ビルドする。 https://c
     MakefileのCFLAGSをいじる。
     CFLAGS = -c -I ...... $(OPT) -fPIC
 
-これで再度makeする。また、ライブラリについても共有する必要があるので、makeした後にできる ::
-
-
+これで再度makeする。また、ライブラリについても共有する必要があるので、makeした後にできる
 
 hdf5インストール
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-hdf5のアーカイブをダウンロードし、ビルドする。https://support.hdfgroup.org/HDF5/release/obtainsrc.html ::
+hdf5のアーカイブをダウンロードし、ビルドする。
+https://support.hdfgroup.org/HDF5/release/obtainsrc.html ::
 
     $ ./configure --prefix=/usr/local/hdf5 --enable-fortran --enable-cxx
     $ make 
