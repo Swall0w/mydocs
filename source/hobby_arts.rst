@@ -14,7 +14,7 @@ Art Fair Tokyo 2017
 https://artfairtokyo.com/
 
 気になった作家さん
-====================================
+------------------------------------
 
 * 名和晃平
 http://sandwich-cpca.net/
@@ -42,5 +42,13 @@ http://maikok.com/blog/
 
 疑問の点として、陶芸の魅力とは何なんだろう。見ることを目的としているのか、使用するときの美を目的としているのか。
 
+その他
+------------------------------------
 
+* PAVILION
+http://www.pavilion-tokyo.com/
+中目黒のアートをテーマにしたレストラン
 
+* Art Market Tokyo
+美術系情報サイト
+http://artmarkettokyo.com/
