@@ -58,3 +58,89 @@ AITC オープンラボ「音の機械学習　入門編」
 
 * その音がなんの音であるのかを特徴量から推定
 * シンプルなものだとGMM(gausian mixed model)を用いるが、分類問題なので、最近はニューラルネットワークでやったりもする。
+
+Chainer meetup #5
+========================================================================
+2017/06/10 @マイクロソフト
+
+chainer v2.0
+-----------------------------------------------------------------------
+* 不整合があったAPIなどの変更
+* 互換性がないものにしてはドキュメント
+* API破壊に関しては参照　https://docs.chainer.org/en/stable/compatibility.html
+
+もっとも大きな変更はcupyの変更
+chainerの内部からCuPyを独立させた。
+→ユーザーはコンフィグファイルを設定する必要がある。
+コンフィグはグローバルになる。
+
+ユーザーのインストールには
+pip install cupy chainer
+
+v1からv2はpip uninstall chainer <- cupyをクリーンにするため
+docker関連はsudoでパスを通す必要になるので注意
+
+新機能
+
+* メモリ削減　FuntionがバックプロップのためにVariableを保持←いらないものものあるので、それをどうにか減らしたかった
+VariableとFuntionを交互に参照するVariableNodeが実装 30%程度削減
+
+* NumpyのアドバンスドインデックスをVariableで使えるようになった
+
+* Optimizerがuser_ruleを適用し複雑案設定ができるようになった。
+
+リポジトリの変更
+頻繁にメジャーアップデート（開発(master)のブランチとリリースのブランチのみ）メジャーアップデートは12週間ごと
+
+これからの予定？
+* バックプロップのバックプロップ
+* ドキュメントの改善
+* Graph visualization toolkit
+
+ChainerMNについて
+---------------------
+
+chainerMNはデータ並列の分散処理によって高速化するための追加パッケージ
+
+通常のchainer
+Forward Backward Optimiser
+
+分散処理
+Forward Backward All-Reduce Optimize
+
+シングルノードとマルチノードの両方に対応
+
+chainerMNの使い方
+^^^^^^^^^^^^^^^^^^^^
+
+* chainer (cupy and cuDNN)
+* OpenMPI (cuda-awareのサポートを入れてコンパイルする。Ubuntunのはサポート入ってない）
+* NVIDIA NCCL (make時にNVCC＿GENCODEの指定)
+* MPI4py
+* Cython
+
+インストール
+pip install chainermn
+
+MPIを使うときには
+mpiexec -n 4 python examples/mnist/train_mnist.py -g
+
+動かない場合は http://chainermn.readthedocs.io/en/latest/installation/troubleshooting.html
+
+最低限変更する点
+
+* Communicatorの作榮と使用するGPUの指定
+* GPUの指定の仕方変更
+* optimizerの変更
+
+やったほうがいいこと
+
+* データの分配（上記のままだと、4つのワーカーで学習するため、4倍のバッチサイズとなる。分割して行うほうがいい）
+* MultiNode Evaluatorの作成（そのままでも動かすことが出来るが、コミュニケーター用の評価クラスを使ったほうがいい）
+
+注意することはPrintReportなどのExtensionは１つのワーカーだけ実行する
+それぞれについて実行するとぐちゃぐちゃになる。
+
+デフォルトのコミュニケーターで出来るが、高い性能を出したい場合には最適化したものを選ぶ
+
+
