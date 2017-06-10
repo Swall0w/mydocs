@@ -143,4 +143,34 @@ mpiexec -n 4 python examples/mnist/train_mnist.py -g
 
 デフォルトのコミュニケーターで出来るが、高い性能を出したい場合には最適化したものを選ぶ
 
+ChainerRL
+^^^^^^^^^^^^^^^^^^^^
+Reinforcement Learningの略
+強化学習用の追加パッケージ
+
+* 環境に対して行動する
+* 学習に対して行動を反映させる
+
+の二つをしなければならないために適当に実装するとスパゲッティコードになる
+
+OpenAI Gymに用意されている環境もそのまま使える ::
+
+        import gym
+        env = gym.make("CartPole-v1")
+        
+chaienrrlの中にすでに定義されているエージェントがあるのでそれを使っていくことも可能
+連続値で行動するときはNormalized Advantage learningのものを使う
+
+Replay bufferを変更する
+ミニバッチ内のデータに偏らないように、保存しておいた経験からサンプリングして学習するテク
+並列化においてはasync updateが主流
+
+ChainerCV
+^^^^^^^^^^^^^^^^^^^^
+コンピュータービジョンを簡単にすることが目的
+専門家じゃない人が深層学習を使うのは大変　→　楽に使えるようにする
+
+model.predictが共通
+前処理が
+
 
